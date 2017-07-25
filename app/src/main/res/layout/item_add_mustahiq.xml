@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/activity_vertical_margin"
+    android:orientation="vertical">
+
+    <agency.tango.android.avatarview.views.AvatarView
+        android:id="@+id/foto_profil"
+        android:layout_width="@dimen/foto_profil_size"
+        android:layout_height="@dimen/foto_profil_size"
+        app:av_border_color="@android:color/white"
+        app:av_border_width="4dp"
+        app:av_text_size_percentage="35" />
+
+    <TextView
+        android:id="@+id/nama_calon_mustahiq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left" />
+</LinearLayout>

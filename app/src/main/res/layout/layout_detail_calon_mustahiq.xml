@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/text_secondary"
+        android:orientation="vertical"
+        android:padding="@dimen/dist_large">
+
+    <agency.tango.android.avatarview.views.AvatarView
+        android:id="@+id/foto_profil"
+        android:layout_width="@dimen/foto_profil_detail_size"
+        android:layout_height="@dimen/foto_profil_detail_size"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        app:av_border_color="@android:color/white"
+        app:av_border_width="4dp"
+        app:av_text_size_percentage="35" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.ad.restauranticecream.widget.RobotoBoldTextView
+            android:id="@+id/nama_calon_mustahiq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_large"
+            tools:text="nama_calon_mustahiq" />
+
+        <com.ad.restauranticecream.widget.RobotoLightTextView
+            android:id="@+id/alamat_calon_mustahiq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_large"
+            tools:text="alamat_calon_mustahiq" />
+
+        <com.ad.restauranticecream.widget.RobotoLightTextView
+            android:id="@+id/no_identitas_calon_mustahiq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_large"
+            tools:text="no_identitas_calon_mustahiq" />
+
+        <com.ad.restauranticecream.widget.RobotoLightTextView
+            android:id="@+id/no_telp_calon_mustahiq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_large"
+            tools:text="no_telp_calon_mustahiq" />
+
+        <com.ad.restauranticecream.widget.RobotoLightTextView
+            android:id="@+id/nama_perekomendasi_calon_mustahiq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_large"
+            tools:text="nama_perekomendasi_calon_mustahiq" />
+    </LinearLayout>
+        </LinearLayout>
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

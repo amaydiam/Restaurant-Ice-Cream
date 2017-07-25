@@ -1,0 +1,64 @@
+<resources>
+
+    <!-- Base application themes -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="android:colorForeground">@color/foreground</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeBackground">@color/primary</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="Button.Red" parent="Widget.AppCompat.Button">
+        <item name="colorButtonNormal">@color/primary_dark</item>
+        <item name="colorControlHighlight">@color/primary</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="CheckBox" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/green</item>
+        <item name="android:textColorSecondary">@color/red</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="DialogScanBarcode" parent="Base.Theme.AppCompat.Dialog">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="android:colorForeground">@color/foreground</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeBackground">@color/primary</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+        <item name="android:windowEnterAnimation">@anim/dialog_anim_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_anim_out</item>
+    </style>
+
+    <style name="DialogViewImage" parent="Base.Theme.AppCompat.Dialog">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="android:colorForeground">@color/foreground</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeBackground">@color/primary</item>
+        <item name="android:windowEnterAnimation">@anim/dialog_anim_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_anim_out</item>
+    </style>
+
+</resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/drawer_group">
+
+        <item
+            android:id="@+id/drawer_donasi"
+            android:checkable="true"
+            android:title="@string/drawer_donasi" />
+        <item
+            android:id="@+id/drawer_laporan_donasi"
+            android:checkable="true"
+            android:title="@string/drawer_laporan_donasi" />
+
+        <item
+            android:id="@+id/drawer_calon_mustahiq"
+            android:checkable="true"
+            android:title="@string/drawer_calon_mustahiq" />
+
+        <item
+            android:id="@+id/drawer_mustahiq"
+            android:checkable="true"
+            android:title="@string/drawer_mustahiq" />
+
+        <item
+            android:id="@+id/drawer_logout_login"
+            android:checkable="true"
+            android:title="@string/drawer_logout_login" />
+
+    </group>
+
+
+</menu>
+

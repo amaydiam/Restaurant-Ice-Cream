@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- General Margin/Padding -->
+    <dimen name="dist_large">16dp</dimen>
+    <dimen name="dist_medium">8dp</dimen>
+
+    <!-- General Text Sizes -->
+    <dimen name="text_xxlarge">20sp</dimen>
+    <dimen name="text_xlarge">18sp</dimen>
+    <dimen name="text_large">16sp</dimen>
+    <dimen name="text_small">12sp</dimen>
+
+    <!-- App Drawer -->
+    <dimen name="drawer_header_height">165dp</dimen>
+    <dimen name="drawer_icon_size">56dp</dimen>
+
+    <!-- Loading Circle -->
+    <dimen name="progress_circle_width">80dp</dimen>
+    <dimen name="progress_circle_height">80dp</dimen>
+    <dimen name="progress_circle_stroke">4dp</dimen>
+
+    <!-- Error Message -->
+    <dimen name="error_icon_width">120dp</dimen>
+    <dimen name="error_icon_height">120dp</dimen>
+    <dimen name="error_message_marginTop">15dp</dimen>
+    <dimen name="error_try_again_padding">8dp</dimen>
+
+    <!-- RecyclerView Dimensions -->
+    <dimen name="recycler_view_padding">6dp</dimen>
+
+    <!-- Jadwal Grid Item -->
+
+    <!-- Jadwal List Item -->
+    <dimen name="movie_list_card_width">400dp</dimen>
+
+    <!-- Jadwal Compact Item -->
+
+    <!-- Detail Activity -->
+
+    <!-- Review Item -->
+
+    <!-- Photo Item -->
+
+    <!-- Video Item -->
+
+    <!-- Kru Item -->
+    <dimen name="credit_item_padding">12dp</dimen>
+    <dimen name="foto_profil_size">55dp</dimen>
+    <dimen name="foto_profil_detail_size">80dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_half_vertical_margin">8dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+
+    <!-- About Page -->
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+</resources>

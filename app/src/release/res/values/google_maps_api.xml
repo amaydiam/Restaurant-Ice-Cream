@@ -1,0 +1,41 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=F2:7D:B7:08:DB:84:54:1C:FB:43:8B:3B:A7:5A:11:E3:C1:EA:03:52%3Bcom.ad.restauranticecream.activity
+
+    You can also add your credentials to an existing key, using this line:
+    F2:7D:B7:08:DB:84:54:1C:FB:43:8B:3B:A7:5A:11:E3:C1:EA:03:52;com.ad.restauranticecream.activity
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=0D:A6:A6:CE:CA:07:3E:80:C3:11:49:73:72:4F:99:F1:D6:5A:C7:F5%3Bcom.ad.restauranticecream
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    0D:A6:A6:CE:CA:07:3E:80:C3:11:49:73:72:4F:99:F1:D6:5A:C7:F5
+
+    SHA-1 certificate fingerprint:
+    0D:A6:A6:CE:CA:07:3E:80:C3:11:49:73:72:4F:99:F1:D6:5A:C7:F5
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" translatable="false">AIzaSyAZEQvzW7ayvu435sqQGIs7SDFrvELcTcA</string>
+</resources>

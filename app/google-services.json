@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "653856336876",
+    "project_id": "jhavel-wisata"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653856336876:android:50f1258693661049",
+        "android_client_info": {
+          "package_name": "com.ad.restauranticecream"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIFdugRf2R4fRsLhl0THpwqDwk6GSykOU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-44314080-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="400dp"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardCornerRadius="2dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nama Calon Mustahiq"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <com.ad.restauranticecream.widget.RobotoRegularEditText
+                            android:id="@+id/nama_calon_mustahiq"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="textPersonName|textNoSuggestions"
+                             />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Alamat Calon Mustahiq"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.ad.restauranticecream.widget.RobotoRegularEditText
+                                android:id="@+id/alamat_calon_mustahiq"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:ems="10"
+                                android:gravity="top"
+                                android:inputType="textMultiLine|textNoSuggestions"
+                                android:minHeight="150dp"
+                                android:layout_toLeftOf="@+id/pick_location"/>
+
+                            <com.joanzapata.iconify.widget.IconButton
+                                android:layout_alignParentRight="true"
+                                android:id="@+id/pick_location"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="{mdi-map-marker}"
+                                android:textColor="@color/primary"/>
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Nomor Identitas Calon Mustahiq"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <com.ad.restauranticecream.widget.RobotoRegularEditText
+                            android:id="@+id/no_identitas_calon_mustahiq"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:digits="0123456789"
+                            android:ems="10"
+                            android:inputType="number|textNoSuggestions"
+                             />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Nomor Telp Calon Mustahiq"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <com.ad.restauranticecream.widget.RobotoRegularEditText
+                            android:id="@+id/no_telp_calon_mustahiq"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:digits="0123456789"
+                            android:ems="10"
+                            android:inputType="number|textNoSuggestions"
+                             />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Alasan Direkomendasikan"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <com.ad.restauranticecream.widget.RobotoRegularEditText
+                            android:id="@+id/alasan_perekomendasi_calon_mustahiq"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="text|textNoSuggestions"
+                             />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Foto Calon Mustahiq (lampirkan 3 foto)"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <RelativeLayout
+                            android:id="@+id/foto_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/activity_half_vertical_margin">
+
+                            <ImageView
+                                android:id="@+id/img_foto_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/default_placeholder" />
+
+                            <com.joanzapata.iconify.widget.IconTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="{fa-pencil}"
+
+                                android:textColor="@color/accent" />
+
+                        </RelativeLayout>
+                        <com.ad.restauranticecream.widget.RobotoRegularEditText
+                            android:id="@+id/caption_img_foto_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="text|textNoSuggestions"
+                            android:minLines="1"
+                            android:hint="keterangan foto 1"
+                            />
+
+
+                        <RelativeLayout
+                            android:id="@+id/foto_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/activity_half_vertical_margin">
+
+                            <ImageView
+                                android:id="@+id/img_foto_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/default_placeholder" />
+
+                            <com.joanzapata.iconify.widget.IconTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="{fa-pencil}"
+
+                                android:textColor="@color/accent" />
+
+                        </RelativeLayout>
+                        <com.ad.restauranticecream.widget.RobotoRegularEditText
+                            android:id="@+id/caption_img_foto_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="text|textNoSuggestions"
+                            android:minLines="1"
+                            android:hint="keterangan foto 2"
+                            />
+                        <RelativeLayout
+                            android:id="@+id/foto_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/activity_half_vertical_margin">
+
+                            <ImageView
+                                android:id="@+id/img_foto_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/default_placeholder" />
+
+                            <com.joanzapata.iconify.widget.IconTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="{fa-pencil}"
+
+                                android:textColor="@color/accent" />
+
+                        </RelativeLayout>
+                        <com.ad.restauranticecream.widget.RobotoRegularEditText
+                            android:id="@+id/caption_img_foto_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="text|textNoSuggestions"
+                            android:minLines="1"
+                            android:hint="keterangan foto 3"
+                            />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
