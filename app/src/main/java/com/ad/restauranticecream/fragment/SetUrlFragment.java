@@ -14,7 +14,7 @@ import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 
 import com.ad.restauranticecream.R; import com.ad.restauranticecream.R2;
-import com.ad.restauranticecream.Zakat;
+import com.ad.restauranticecream.RestaurantIceCream;
 import com.ad.restauranticecream.utils.ApiHelper;
 import com.ad.restauranticecream.utils.CustomVolley;
 import com.ad.restauranticecream.utils.Menus;

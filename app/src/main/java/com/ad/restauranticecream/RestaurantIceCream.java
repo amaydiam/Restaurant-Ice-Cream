@@ -5,7 +5,7 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 
 
-public class Restaurant Ice Creamextends Application {
+public class RestaurantIceCream extends Application {
 
 
     public static final String LAST_SELECTED = "last_drawer_selection";

@@ -12,7 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import com.ad.restauranticecream.R;
-import com.ad.restauranticecream.Zakat;
+import com.ad.restauranticecream.RestaurantIceCream;
 import com.ad.restauranticecream.fragment.CalonMustahiqDetailFragment;
 import com.ad.restauranticecream.fragment.DialogDetailDonasiFragment;
 import com.ad.restauranticecream.fragment.DonasiDetailFragment;

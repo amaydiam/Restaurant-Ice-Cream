@@ -17,7 +17,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.ad.restauranticecream.R;
-import com.ad.restauranticecream.Zakat;
+import com.ad.restauranticecream.RestaurantIceCream;
 import com.ad.restauranticecream.model.Mustahiq;
 import com.ad.restauranticecream.utils.ApiHelper;
 import com.ad.restauranticecream.utils.CustomVolley;

@@ -9,7 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import com.ad.restauranticecream.R;
-import com.ad.restauranticecream.Zakat;
+import com.ad.restauranticecream.RestaurantIceCream;
 import com.ad.restauranticecream.fragment.DialogDetailDonasiFragment;
 import com.ad.restauranticecream.fragment.DonasiDetailFragment;
 import com.ad.restauranticecream.model.LaporanDonasi;

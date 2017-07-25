@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ad.restauranticecream.R;
-import com.ad.restauranticecream.Zakat;
+import com.ad.restauranticecream.RestaurantIceCream;
 import com.ad.restauranticecream.model.LaporanDonasi;
 import com.ad.restauranticecream.utils.ApiHelper;
 import com.ad.restauranticecream.utils.CustomVolley;

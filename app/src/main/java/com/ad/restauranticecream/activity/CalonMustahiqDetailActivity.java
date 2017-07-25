@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.ad.restauranticecream.R;
-import com.ad.restauranticecream.Zakat;
+import com.ad.restauranticecream.RestaurantIceCream;
 import com.ad.restauranticecream.fragment.CalonMustahiqDetailFragment;
 import com.ad.restauranticecream.fragment.DialogDetailDonasiFragment;
 import com.ad.restauranticecream.model.ImageFile;

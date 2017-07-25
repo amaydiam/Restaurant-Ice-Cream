@@ -26,7 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ad.restauranticecream.R;
-import com.ad.restauranticecream.Zakat;
+import com.ad.restauranticecream.RestaurantIceCream;
 import com.ad.restauranticecream.activity.ActionDonasiBaruActivity;
 import com.ad.restauranticecream.model.Mustahiq;
 import com.ad.restauranticecream.utils.ApiHelper;

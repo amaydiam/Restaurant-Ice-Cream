@@ -24,7 +24,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.ad.restauranticecream.R;
-import com.ad.restauranticecream.Zakat;
+import com.ad.restauranticecream.RestaurantIceCream;
 import com.ad.restauranticecream.activity.DrawerActivity;
 import com.ad.restauranticecream.adapter.CalonMustahiqAdapter;
 import com.ad.restauranticecream.model.CalonMustahiq;

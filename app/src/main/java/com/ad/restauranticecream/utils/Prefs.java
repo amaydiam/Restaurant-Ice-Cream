@@ -3,7 +3,7 @@ package com.ad.restauranticecream.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.ad.restauranticecream.Zakat;
+import com.ad.restauranticecream.RestaurantIceCream;
 
 public final class Prefs {
 

@@ -3,7 +3,7 @@ package com.ad.restauranticecream.utils;
 import android.content.Context;
 import android.util.Log;
 
-import com.ad.restauranticecream.Zakat;
+import com.ad.restauranticecream.RestaurantIceCream;
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkResponse;

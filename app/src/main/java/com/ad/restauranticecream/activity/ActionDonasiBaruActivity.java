@@ -29,7 +29,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import com.ad.restauranticecream.R;
-import com.ad.restauranticecream.Zakat;
+import com.ad.restauranticecream.RestaurantIceCream;
 import com.ad.restauranticecream.fragment.Step1AddInfoMuzakiFragment;
 import com.ad.restauranticecream.fragment.Step2AddBuktiPembayaranFragment;
 import com.ad.restauranticecream.model.LaporanDonasi;
