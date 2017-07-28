@@ -3,208 +3,76 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/text_secondary"
     android:orientation="vertical"
     android:padding="@dimen/dist_large">
 
-    <com.ad.restauranticecream.widget.RobotoRegularTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
 
-        android:text="Keterangan Muzaki (Pemberi Donasi)"
-        android:textColor="@color/accent"
-        android:textSize="@dimen/text_large" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:orientation="vertical">
-
-        <agency.tango.android.avatarview.views.AvatarView
-            android:id="@+id/foto_profil_muzaki"
-            android:layout_width="@dimen/foto_profil_detail_size"
-            android:layout_height="@dimen/foto_profil_detail_size"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            app:av_border_color="@android:color/white"
-            app:av_border_width="4dp"
-            app:av_text_size_percentage="35" />
 
         <com.ad.restauranticecream.widget.RobotoBoldTextView
-            android:id="@+id/nama_muzaki"
+            android:id="@+id/nama_meja"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
 
             android:textColor="@color/text_primary"
             android:textSize="@dimen/text_large"
-            tools:text="nama_muzaki" />
+            tools:text="nama_meja" />
 
         <com.ad.restauranticecream.widget.RobotoLightTextView
-            android:id="@+id/alamat_muzaki"
+            android:id="@+id/nama_pemesan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
 
             android:textColor="@color/text_primary"
             android:textSize="@dimen/text_large"
-            tools:text="alamat_muzaki" />
-
-        <com.ad.restauranticecream.widget.RobotoLightTextView
-            android:id="@+id/no_identitas_muzaki"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-
-            android:textColor="@color/text_primary"
-            android:textSize="@dimen/text_large"
-            tools:text="no_identitas_muzaki" />
-
-        <com.ad.restauranticecream.widget.RobotoLightTextView
-            android:id="@+id/no_telp_muzaki"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-
-            android:textColor="@color/text_primary"
-            android:textSize="@dimen/text_large"
-            tools:text="no_telp_muzaki" />
-
-        <com.ad.restauranticecream.widget.RobotoLightTextView
-            android:id="@+id/status_muzaki"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-
-            android:textColor="@color/text_primary"
-            android:textSize="@dimen/text_large"
-            tools:text="status_muzaki" />
-    </LinearLayout>
-
-
-    <com.ad.restauranticecream.widget.RobotoRegularTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:ellipsize="end"
-
-        android:text="Keterangan Mutahiq (Penerima Donasi)"
-        android:textColor="@color/accent"
-        android:textSize="@dimen/text_large" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:orientation="vertical">
-
-        <agency.tango.android.avatarview.views.AvatarView
-            android:id="@+id/foto_profil_mustahiq"
-            android:layout_width="@dimen/foto_profil_detail_size"
-            android:layout_height="@dimen/foto_profil_detail_size"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            app:av_border_color="@android:color/white"
-            app:av_border_width="4dp"
-            app:av_text_size_percentage="35" />
-
-        <com.ad.restauranticecream.widget.RobotoBoldTextView
-            android:id="@+id/nama_calon_mustahiq"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-
-            android:textColor="@color/text_primary"
-            android:textSize="@dimen/text_large"
-            tools:text="nama_calon_mustahiq" />
-
-        <com.ad.restauranticecream.widget.RobotoLightTextView
-            android:id="@+id/alamat_calon_mustahiq"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-
-            android:textColor="@color/text_primary"
-            android:textSize="@dimen/text_large"
-            tools:text="alamat_calon_mustahiq" />
-
-        <com.ad.restauranticecream.widget.RobotoLightTextView
-            android:id="@+id/no_identitas_calon_mustahiq"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-
-            android:textColor="@color/text_primary"
-            android:textSize="@dimen/text_large"
-            tools:text="no_identitas_calon_mustahiq" />
-
-        <com.ad.restauranticecream.widget.RobotoLightTextView
-            android:id="@+id/no_telp_calon_mustahiq"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-
-            android:textColor="@color/text_primary"
-            android:textSize="@dimen/text_large"
-            tools:text="no_telp_calon_mustahiq" />
-
-        <com.ad.restauranticecream.widget.RobotoLightTextView
-        android:id="@+id/nama_amil_zakat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-
-        android:textColor="@color/text_primary"
-        android:textSize="@dimen/text_large"
-        tools:text="nama_amil_zakat" />
+            tools:text="nama_pemesan" />
 
 
         <com.ad.restauranticecream.widget.RobotoLightTextView
-            android:id="@+id/status_calon_mustahiq"
+            android:id="@+id/kode_pesanan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-
             android:textColor="@color/text_primary"
             android:textSize="@dimen/text_large"
-            tools:text="status_calon_mustahiq" />
+            tools:text="kode_pesanan" />
+
         <com.ad.restauranticecream.widget.RobotoLightTextView
-            android:id="@+id/waktu_terakhir_donasi"
+            android:id="@+id/status_pesanan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-
             android:textColor="@color/text_primary"
             android:textSize="@dimen/text_large"
-            tools:text="waktu_terakhir_donasi" />
-    </LinearLayout>
+            android:visibility="gone"
+            tools:text="status_pesanan" />
 
-    <com.ad.restauranticecream.widget.RobotoRegularTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:ellipsize="end"
-
-        android:text="Jumlah Donasi"
-        android:textColor="@color/accent"
-        android:textSize="@dimen/text_large" />
+        <com.ad.restauranticecream.widget.RobotoLightTextView
+            android:id="@+id/jumlah_harga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:textColor="@color/text_primary"
+            android:textSize="26sp"
+            android:gravity="right"
+            tools:text="jumlah_harga" />
 
     <com.ad.restauranticecream.widget.RobotoLightTextView
-
-        android:id="@+id/jumlah_donasi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
         android:ellipsize="end"
-
         android:textColor="@color/text_primary"
         android:textSize="@dimen/text_large"
-        tools:text="jumlah_donasi" />
+        android:text="pesanan"
+        android:layout_marginTop="@dimen/activity_vertical_margin"/>
+    <TableLayout
+        android:id="@+id/tabel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:orientation="vertical"/>
+
 </LinearLayout>

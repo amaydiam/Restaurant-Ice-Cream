@@ -1,6 +1,5 @@
 package com.ad.restauranticecream.fragment;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -9,7 +8,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.Toolbar.OnMenuItemClickListener;
 import android.view.LayoutInflater;
@@ -17,10 +15,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 
 import com.ad.restauranticecream.R;
 import com.ad.restauranticecream.RestaurantIceCream;
+import com.ad.restauranticecream.model.RefreshDrawer;
 import com.ad.restauranticecream.utils.Menus;
 import com.ad.restauranticecream.utils.Prefs;
 import com.ad.restauranticecream.widget.RobotoBoldTextView;
@@ -29,15 +27,17 @@ import com.joanzapata.iconify.fonts.FontAwesomeIcons;
 import com.joanzapata.iconify.fonts.MaterialCommunityIcons;
 import com.joanzapata.iconify.fonts.MaterialIcons;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 import static android.support.design.widget.NavigationView.OnNavigationItemSelectedListener;
-import static android.view.View.GONE;
-import static android.view.View.VISIBLE;
 
-public class DrawerFragment extends Fragment implements OnMenuItemClickListener, OnNavigationItemSelectedListener, LoginFragment.LoginListener {
+public class DrawerFragment extends Fragment implements OnMenuItemClickListener, OnNavigationItemSelectedListener, MasterPasswordFragment.MasterPasswordListener {
 
     @BindView(R.id.drawer_layout)
     public
@@ -49,6 +49,7 @@ public class DrawerFragment extends Fragment implements OnMenuItemClickListener,
     private Fragment fragment;
     private Unbinder unbinder;
     private MenuItem prevMenuItem;
+    private int MODE;
 
     // Fragment lifecycle
     @Override
@@ -83,8 +84,14 @@ public class DrawerFragment extends Fragment implements OnMenuItemClickListener,
 
         actionBarDrawerToggle.syncState();
 
-        // Load previously selected drawer item
-        int view_type = Prefs.getLastSelected(getActivity());
+        int view_type;
+        if (Prefs.getModeApp(getActivity()) != RestaurantIceCream.MODE_HOME) {
+
+            view_type = Prefs.getLastSelected(getActivity());
+        } else {
+            view_type = RestaurantIceCream.VIEW_TYPE_HOME;
+        }
+
         if (savedInstanceState == null) {
             setSelectedDrawerItem(view_type);
         } else {
@@ -105,49 +112,52 @@ public class DrawerFragment extends Fragment implements OnMenuItemClickListener,
         RobotoBoldTextView ket = (RobotoBoldTextView) header.findViewById(R.id.ket);
 
         // ============ list menu drawer ==============
-        Menu menu = navigationView.getMenu();//donasi
-        MenuItem drawer_donasi = menu.findItem(R.id.drawer_donasi);
-        drawer_donasi.setIcon(
-                new IconDrawable(getActivity(), MaterialIcons.md_attach_money)
-                        .actionBarSize());
-//donasi
-        MenuItem drawer_laporan_donasi = menu.findItem(R.id.drawer_laporan_donasi);
-        drawer_laporan_donasi.setIcon(new IconDrawable(getActivity(), MaterialCommunityIcons.mdi_file_document).actionBarSize());
-//mustahiq
-        MenuItem drawer_mustahiq = menu.findItem(R.id.drawer_mustahiq);
-        drawer_mustahiq.setIcon(new IconDrawable(getActivity(), FontAwesomeIcons.fa_group).actionBarSize());
-        //calon_mustahiq
-        MenuItem drawer_calon_mustahiq = menu.findItem(R.id.drawer_calon_mustahiq);
-        drawer_calon_mustahiq.setIcon(new IconDrawable(getActivity(), FontAwesomeIcons.fa_user).actionBarSize());
+        Menu menu = navigationView.getMenu();
 
-        MenuItem drawer_logout_login = menu.findItem(R.id.drawer_logout_login);
-        if (Prefs.getLogin(getActivity())) {
-            drawer_donasi.setVisible(false);
-            drawer_mustahiq.setVisible(true);
-            drawer_calon_mustahiq.setVisible(true);
-            drawer_logout_login.setTitle("Logout");
-            drawer_logout_login.setIcon(new IconDrawable(getActivity(), MaterialCommunityIcons.mdi_logout).actionBarSize());
-            if (Prefs.getTipeUser(getActivity()).equalsIgnoreCase("1")) {
-                ket.setText("Admin");
-                ket.setVisibility(VISIBLE);
-            } else {
-                drawer_donasi.setVisible(true);
-                drawer_mustahiq.setVisible(false);
-                ket.setVisibility(GONE);
-            }
+        MenuItem drawer_home = menu.findItem(R.id.drawer_home);
+        drawer_home.setIcon(new IconDrawable(getActivity(), MaterialIcons.md_attach_money).actionBarSize());
+        drawer_home.setVisible(false);
+
+        MenuItem drawer_home_pelanggan = menu.findItem(R.id.drawer_home_pelanggan);
+        drawer_home_pelanggan.setIcon(new IconDrawable(getActivity(), FontAwesomeIcons.fa_user).actionBarSize());
+
+        MenuItem drawer_home_pelayan = menu.findItem(R.id.drawer_home_pelayan);
+        drawer_home_pelayan.setIcon(new IconDrawable(getActivity(), FontAwesomeIcons.fa_group).actionBarSize());
+
+        MenuItem drawer_home_kasir = menu.findItem(R.id.drawer_home_kasir);
+        drawer_home_kasir.setIcon(new IconDrawable(getActivity(), MaterialCommunityIcons.mdi_file_document).actionBarSize());
+
+        MenuItem drawer_home_exit = menu.findItem(R.id.drawer_home_exit);
+        drawer_home_exit.setIcon(new IconDrawable(getActivity(), MaterialCommunityIcons.mdi_logout).actionBarSize());
+
+        if (Prefs.getModeApp(getActivity()) == RestaurantIceCream.MODE_PELANGGAN) {
+            drawer_home.setVisible(false);
+            drawer_home_pelanggan.setVisible(false);
+            drawer_home_pelayan.setVisible(false);
+            drawer_home_kasir.setVisible(false);
+            drawer_home_exit.setVisible(true);
+            ket.setText(getResources().getString(R.string.mode_pelanggan));
+        } else if (Prefs.getModeApp(getActivity()) == RestaurantIceCream.MODE_PELAYAN) {
+            drawer_home.setVisible(false);
+            drawer_home_pelanggan.setVisible(false);
+            drawer_home_pelayan.setVisible(false);
+            drawer_home_kasir.setVisible(false);
+            drawer_home_exit.setVisible(true);
+            ket.setText(getResources().getString(R.string.mode_pelayan));
+        } else if (Prefs.getModeApp(getActivity()) == RestaurantIceCream.MODE_KASIR) {
+            drawer_home.setVisible(false);
+            drawer_home_pelanggan.setVisible(false);
+            drawer_home_pelayan.setVisible(false);
+            drawer_home_kasir.setVisible(false);
+            drawer_home_exit.setVisible(true);
+            ket.setText(getResources().getString(R.string.mode_kasir));
         } else {
-
-            drawer_calon_mustahiq.setVisible(true);
-            if (!Prefs.getTipeUser(getActivity()).equalsIgnoreCase("2")) {
-                drawer_calon_mustahiq.setVisible(false);
-            }
-            drawer_donasi.setVisible(true);
-            drawer_mustahiq.setVisible(false);
-            drawer_logout_login.setTitle("Login");
-            drawer_logout_login.setIcon(new IconDrawable(getActivity(), MaterialCommunityIcons.mdi_login).actionBarSize());
+            drawer_home.setVisible(false);
+            drawer_home_pelanggan.setVisible(false);
+            drawer_home_pelayan.setVisible(false);
+            drawer_home_kasir.setVisible(false);
+            drawer_home_exit.setVisible(false);
             ket.setText(getResources().getString(R.string.app_name));
-
-            ket.setVisibility(VISIBLE);
         }
 
 
@@ -173,9 +183,7 @@ public class DrawerFragment extends Fragment implements OnMenuItemClickListener,
         switch (id) {
 
             case R.id.action_set_url:
-
                 SetUrl();
-
                 return true;
 
             default:
@@ -199,51 +207,33 @@ public class DrawerFragment extends Fragment implements OnMenuItemClickListener,
         drawerLayout.closeDrawers();
         int id = item.getItemId();
         switch (id) {
-            case Menus.DRAWER_DONASI:
-                setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_DONASI);
+            case Menus.DRAWER_HOME:
+                setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_HOME);
                 return true;
-            case Menus.DRAWER_LAPORAN_DONASI:
-                setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_LAPORAN_DONASI);
+            case Menus.DRAWER_HOME_PELANGGAN:
+                setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_HOME_PELANGGAN);
                 return true;
-            case Menus.DRAWER_MUSTAHIQ:
-                setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_MUSTAHIQ);
+            case Menus.DRAWER_HOME_PELAYAN:
+                setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_HOME_PELAYAN);
                 return true;
-            case Menus.DRAWER_CALON_MUSTAHIQ:
-                setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_CALON_MUSTAHIQ);
+            case Menus.DRAWER_HOME_KASIR:
+                setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_HOME_KASIR);
                 return true;
-            case Menus.DRAWER_LOGOUT_LOGIN:
+            case Menus.DRAWER_HOME_EXIT:
+
                 if (prevMenuItem != null) {
                     prevMenuItem.setChecked(true);
                 }
-                if (Prefs.getLogin(getActivity())) {
-                    AlertDialog.Builder alt_bld = new AlertDialog.Builder(getActivity());
-                    alt_bld.setMessage("Apakah anda akan keluar?")
-                            .setCancelable(false)
-                            .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    Prefs.putLogin(getActivity(), false);
-                                    SetMenuDrawer();
-                                    setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_DONASI);
-                                }
-                            })
-                            .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.dismiss();
 
-                                }
-                            });
-                    AlertDialog alert = alt_bld.create();
-                    alert.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                    alert.show();
-                } else {
-//ket Aktifity Login
-                    FragmentManager fragmentManager = getChildFragmentManager();
-                    LoginFragment Login = new LoginFragment();
-                    Login.setTargetFragment(this, 0);
-                    Login.show(fragmentManager, "Login");
-                }
+                FragmentManager fragmentManager = getChildFragmentManager();
+                MasterPasswordFragment mp = new MasterPasswordFragment();
+                MODE = RestaurantIceCream.MODE_HOME;
+                mp.setTargetFragment(this, 0);
+                mp.show(fragmentManager, "mp");
+
                 return true;
             default:
+                setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_HOME);
                 return false;
         }
     }
@@ -252,25 +242,25 @@ public class DrawerFragment extends Fragment implements OnMenuItemClickListener,
     public void setSelectedDrawerItem(int view_type) {
         int id;
         switch (view_type) {
-            case RestaurantIceCream.VIEW_TYPE_DONASI:
-                id = Menus.DRAWER_DONASI;
-                fragment = new DonasiMapFragment();
+            case RestaurantIceCream.VIEW_TYPE_HOME:
+                id = Menus.DRAWER_HOME;
+                fragment = new HomeFrament();
                 break;
-            case RestaurantIceCream.VIEW_TYPE_LAPORAN_DONASI:
-                id = Menus.DRAWER_LAPORAN_DONASI;
-                fragment = new LaporanDonasiListFragment();
+            case RestaurantIceCream.VIEW_TYPE_HOME_PELANGGAN:
+                id = Menus.DRAWER_HOME_PELANGGAN;
+                fragment = new HomePelangganFragment();
                 break;
-            case RestaurantIceCream.VIEW_TYPE_MUSTAHIQ:
-                id = Menus.DRAWER_MUSTAHIQ;
-                fragment = MustahiqListFragment.newInstance();
+            case RestaurantIceCream.VIEW_TYPE_HOME_PELAYAN:
+                id = Menus.DRAWER_HOME_PELAYAN;
+                fragment = new HomePelayanFragment();
                 break;
-            case RestaurantIceCream.VIEW_TYPE_CALON_MUSTAHIQ:
-                id = Menus.DRAWER_CALON_MUSTAHIQ;
-                fragment = CalonMustahiqListFragment.newInstance();
+            case RestaurantIceCream.VIEW_TYPE_HOME_KASIR:
+                id = Menus.DRAWER_HOME_KASIR;
+                fragment = new PesananListFragment();
                 break;
             default:
-                id = Menus.DRAWER_MUSTAHIQ;
-                fragment = MustahiqListFragment.newInstance();
+                id = Menus.DRAWER_HOME;
+                fragment = new HomeFrament();
                 break;
         }
         MenuItem item = navigationView.getMenu().findItem(id);
@@ -297,18 +287,46 @@ public class DrawerFragment extends Fragment implements OnMenuItemClickListener,
     }
 
     @Override
-    public void onFinishLogin(String id_user, String tipe_user, String nama, String alamat, String no_telp, String no_identitas) {
-        Prefs.putLogin(getActivity(), true);
-        Prefs.putIdUser(getActivity(), id_user);
-        Prefs.putTipeUser(getActivity(), tipe_user);
-        Prefs.putNamaUser(getActivity(), nama);
-        Prefs.putAlamatUser(getActivity(), alamat);
-        Prefs.putNomorTelpUser(getActivity(), no_telp);
-        Prefs.putNomorIdentitasUser(getActivity(), no_identitas);
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
+
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    public void onRefreshDrawer(RefreshDrawer cp) {
+        if (cp.isRefresh()) {
+            SetMenuDrawer();
+            if (Prefs.getModeApp(getActivity()) == RestaurantIceCream.MODE_PELANGGAN) {
+                setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_HOME_PELANGGAN);
+            } else if (Prefs.getModeApp(getActivity()) == RestaurantIceCream.MODE_PELAYAN) {
+                setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_HOME_PELAYAN);
+            } else if (Prefs.getModeApp(getActivity()) == RestaurantIceCream.MODE_KASIR) {
+                setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_HOME_KASIR);
+            } else {
+                setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_HOME);
+            }
+        }
+
+        RefreshDrawer stickyEvent = EventBus.getDefault().getStickyEvent(RefreshDrawer.class);
+        if (stickyEvent != null) {
+            EventBus.getDefault().removeStickyEvent(stickyEvent);
+        }
+    }
+
+    @Override
+    public void onFinishMasterPassword() {
+        if (MODE == RestaurantIceCream.MODE_HOME) {
+            Prefs.putIdMeja(getActivity(), null);
+            Prefs.putNamaMeja(getActivity(), null);
+        }
+        Prefs.putModeApp(getActivity(), MODE);
+        setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_HOME);
         SetMenuDrawer();
-        if(Prefs.getIdUser(getActivity()).equalsIgnoreCase("2"))
-            setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_DONASI);
-            else
-        setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_MUSTAHIQ);
     }
 }

@@ -1,10 +1,9 @@
 <resources>
     <!-- App Title -->
-    <string name="app_name" translatable="false">Zakat</string>
+    <string name="app_name" translatable="false">Restaurant Ice Cream</string>
 
     <!-- List For Navigation Drawer -->
-    <string name="drawer_mustahiq">Mustahiq</string>
-    <string name="drawer_logout_login">Logout/Login</string>
+    <string name="drawer_home_pelayan">Pelayan</string>
 
     <!-- Toolbar actions -->
     <string name="action_set_url">Set Url</string>
@@ -17,7 +16,7 @@
     <!-- Backup Activity -->
 
     <!-- About Dialog -->
-    <string name="drawer_donasi">Donasi</string>
+    <string name="drawer_home">Home</string>
     <string name="base_url">restaurant_ice_cream</string>
     <string name="action_send">Send</string>
     <string name="action_delete">Delete</string>
@@ -38,14 +37,22 @@
     </string-array>
     <string name="message_denied">Permission \"%1$s\" has been denied.</string>
     <string name="type_search">Ex: Keyword</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
-    <string name="drawer_laporan_donasi">Laporan Donasi</string>
-    <string name="drawer_calon_mustahiq">Calon Mustahiq</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="drawer_home_kasir">Kasir</string>
+    <string name="drawer_home_pelanggan">Pelanggan</string>
     <string name="upload_document_permission"><![CDATA[Kamu harus unggah gambar %s. Aktifkan izin (permission) WRITE_EXTERNAL_STORAGE dan CAMERA di [Setting] > [Permission]]]></string>
     <string name="pick_source">Pick Image</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="keterangan_mode">--- Masuk Sebagai ---</string>
+    <string name="mode_pelanggan">Pelanggan</string>
+    <string name="mode_pelayan">Pelayan</string>
+    <string name="mode_kasir">Kasir</string>
+    <string name="master_password_failed">Password Salah</string>
+    <string name="drawer_home_exit">Keluar</string>
+    <string name="menu">Menu</string>
+    <string name="pesanan">Pesanan</string>
+    <string name="pesan_baru">Pesan Baru</string>
+    <string name="teruskan">Teruskan</string>
 
 
 </resources>

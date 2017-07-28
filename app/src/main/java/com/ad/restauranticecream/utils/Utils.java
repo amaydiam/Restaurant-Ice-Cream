@@ -285,7 +285,7 @@ public class Utils {
         } catch (Exception e) {
 
         }
-        return ss.replace(",", ".");
+        return "Rp."+ss.replace(",", ".");
     }
 
     public static String Rupiah(int s) {
@@ -295,6 +295,6 @@ public class Utils {
         } catch (Exception e) {
 
         }
-        return ss.replace(",", ".");
+        return "Rp."+ss.replace(",", ".");
     }
 }

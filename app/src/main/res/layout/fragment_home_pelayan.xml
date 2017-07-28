@@ -1,0 +1,37 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.ad.restauranticecream.fragment.HomeFrament">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_half_vertical_margin"
+            android:text="@string/menu"
+            android:background="@color/accent"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_pesanan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_half_vertical_margin"
+            android:text="@string/pesanan"
+            android:background="@color/accent"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</ScrollView>

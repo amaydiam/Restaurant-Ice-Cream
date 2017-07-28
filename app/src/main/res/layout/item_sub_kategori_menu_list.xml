@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/recycler_view_padding"
+    android:clickable="true"
+    cardview:cardBackgroundColor="@color/white"
+    cardview:cardPreventCornerOverlap="false"
+    cardview:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:padding="4dp">
+        <ImageView
+            android:id="@+id/gambar_sub_kategori_menu"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/default_placeholder"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"/>
+
+        <com.ad.restauranticecream.widget.RobotoLightTextView
+            android:id="@+id/nama_sub_kategori_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#90000000"
+            android:ellipsize="end"
+            android:gravity="right"
+            android:padding="@dimen/activity_vertical_margin"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            tools:text="nama_sub_kategori_menu"
+            android:layout_alignParentBottom="true"/>
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

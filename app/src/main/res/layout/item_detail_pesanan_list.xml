@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
+    <com.ad.restauranticecream.widget.RobotoLightTextView
+        android:id="@+id/no"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_large"
+        tools:text="no"
+        android:layout_weight="0.10" />
+
+    <com.ad.restauranticecream.widget.RobotoLightTextView
+        android:id="@+id/nama_menu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_large"
+        tools:text="nama_menu"
+        android:layout_weight="0.20"
+        android:layout_marginLeft="@dimen/activity_half_vertical_margin"
+        android:layout_marginRight="@dimen/activity_half_vertical_margin"/>
+
+
+    <com.ad.restauranticecream.widget.RobotoLightTextView
+        android:id="@+id/jumlah_pesanan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_large"
+        tools:text="jumlah_pesanan"
+        android:layout_weight="0.20" />
+
+    <com.ad.restauranticecream.widget.RobotoLightTextView
+        android:id="@+id/harga_pesanan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_large"
+        tools:text="harga_pesanan"
+        android:layout_weight="0.25"
+        android:gravity="right"
+        android:layout_marginLeft="@dimen/activity_half_vertical_margin"
+        android:layout_marginRight="@dimen/activity_half_vertical_margin" />
+
+    <com.ad.restauranticecream.widget.RobotoLightTextView
+        android:id="@+id/total_harga_pesanan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_large"
+        tools:text="total_harga_pesanan"
+        android:layout_weight="0.25"
+        android:gravity="right" />
+
+</TableRow>
+
+
+

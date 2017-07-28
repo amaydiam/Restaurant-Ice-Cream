@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:id="@+id/drawer_group">
+    <group>
 
         <item
-            android:id="@+id/drawer_donasi"
+            android:id="@+id/drawer_home"
             android:checkable="true"
-            android:title="@string/drawer_donasi" />
-        <item
-            android:id="@+id/drawer_laporan_donasi"
-            android:checkable="true"
-            android:title="@string/drawer_laporan_donasi" />
+            android:title="@string/drawer_home" />
 
         <item
-            android:id="@+id/drawer_calon_mustahiq"
+            android:id="@+id/drawer_home_pelanggan"
             android:checkable="true"
-            android:title="@string/drawer_calon_mustahiq" />
+            android:title="@string/drawer_home_pelanggan" />
 
         <item
-            android:id="@+id/drawer_mustahiq"
+            android:id="@+id/drawer_home_pelayan"
             android:checkable="true"
-            android:title="@string/drawer_mustahiq" />
+            android:title="@string/drawer_home_pelayan" />
+
 
         <item
-            android:id="@+id/drawer_logout_login"
+            android:id="@+id/drawer_home_kasir"
             android:checkable="true"
-            android:title="@string/drawer_logout_login" />
+            android:title="@string/drawer_home_kasir" />
+
+        <item
+            android:id="@+id/drawer_home_exit"
+            android:checkable="true"
+            android:title="@string/drawer_home_exit" />
 
     </group>
 

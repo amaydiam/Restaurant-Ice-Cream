@@ -42,7 +42,7 @@ public final class Prefs {
 
     // last selected
     public static int getLastSelected(final Context context) {
-        String e = Prefs.getPref(context, RestaurantIceCream.LAST_SELECTED, String.valueOf(RestaurantIceCream.VIEW_TYPE_MUSTAHIQ));
+        String e = Prefs.getPref(context, RestaurantIceCream.LAST_SELECTED, String.valueOf(RestaurantIceCream.VIEW_TYPE_HOME_PELAYAN));
         return Integer.parseInt(e);
     }
 
@@ -69,13 +69,59 @@ public final class Prefs {
         Prefs.putPref(context, RestaurantIceCream.ID_USER, id_user);
     }
 
-    public static String getTipeUser(final Context context) {
-        String e = Prefs.getPref(context, RestaurantIceCream.TIPE_USER, "3");
+    public static int getModeApp(final Context context) {
+        String e = Prefs.getPref(context, RestaurantIceCream.MODE, String.valueOf(RestaurantIceCream.MODE_HOME));
+        return Integer.parseInt(e);
+    }
+
+    public static void putIdMeja(final Context context, String mode) {
+        Prefs.putPref(context, RestaurantIceCream.ID_MEJA, mode);
+    }
+
+    public static String getIdMeja(final Context context) {
+        String e = Prefs.getPref(context, RestaurantIceCream.ID_MEJA, null);
         return e;
     }
 
-    public static void putTipeUser(final Context context, String tipe_user) {
-        Prefs.putPref(context, RestaurantIceCream.TIPE_USER, tipe_user);
+    public static void putNamaMeja(final Context context, String mode) {
+        Prefs.putPref(context, RestaurantIceCream.NAMA_MEJA, mode);
+    }
+
+    public static String getNamaMeja(final Context context) {
+        String e = Prefs.getPref(context, RestaurantIceCream.NAMA_MEJA, null);
+        return e;
+    }
+
+    public static void putNamaPelanggan(final Context context, String mode) {
+        Prefs.putPref(context, RestaurantIceCream.NAMA_PELANGGAN, mode);
+    }
+
+    public static String getNamaPelanggan(final Context context) {
+        String e = Prefs.getPref(context, RestaurantIceCream.NAMA_PELANGGAN, null);
+        return e;
+    }
+
+    public static void putKodePesanan(final Context context, String mode) {
+        Prefs.putPref(context, RestaurantIceCream.KODE_PESANAN, mode);
+    }
+
+    public static String getKodePesanan(final Context context) {
+        String e = Prefs.getPref(context, RestaurantIceCream.KODE_PESANAN, null);
+        return e;
+    }
+
+    public static void putCatatanPesanan(final Context context, String mode) {
+        Prefs.putPref(context, RestaurantIceCream.CATATAN_PESANAN, mode);
+    }
+
+    public static String getCatatanPesanan(final Context context) {
+        String e = Prefs.getPref(context, RestaurantIceCream.CATATAN_PESANAN, "");
+        return e;
+    }
+
+
+    public static void putModeApp(final Context context, int mode) {
+        Prefs.putPref(context, RestaurantIceCream.MODE, String.valueOf(mode));
     }
 
     public static String getNamaUser(final Context context) {
@@ -86,6 +132,7 @@ public final class Prefs {
     public static void putNamaUser(final Context context, String id_user) {
         Prefs.putPref(context, RestaurantIceCream.NAMA_USER, id_user);
     }
+
     public static String getAlamatUser(final Context context) {
         String e = Prefs.getPref(context, RestaurantIceCream.ALAMAT_USER, null);
         return e;
@@ -94,6 +141,7 @@ public final class Prefs {
     public static void putAlamatUser(final Context context, String id_user) {
         Prefs.putPref(context, RestaurantIceCream.ALAMAT_USER, id_user);
     }
+
     public static String getNomorIdentitasUser(final Context context) {
         String e = Prefs.getPref(context, RestaurantIceCream.NOMOR_IDENTITAS_USER, null);
         return e;
@@ -102,6 +150,7 @@ public final class Prefs {
     public static void putNomorIdentitasUser(final Context context, String id_user) {
         Prefs.putPref(context, RestaurantIceCream.NOMOR_IDENTITAS_USER, id_user);
     }
+
     public static String getNomorTelpUser(final Context context) {
         String e = Prefs.getPref(context, RestaurantIceCream.NOMOR_TELP_USER, null);
         return e;

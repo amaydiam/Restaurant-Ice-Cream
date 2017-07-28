@@ -13,15 +13,11 @@ import android.widget.Toast;
 
 import com.ad.restauranticecream.R;
 import com.ad.restauranticecream.RestaurantIceCream;
-import com.ad.restauranticecream.fragment.CalonMustahiqDetailFragment;
-import com.ad.restauranticecream.fragment.DialogDetailDonasiFragment;
-import com.ad.restauranticecream.fragment.DonasiDetailFragment;
 import com.ad.restauranticecream.fragment.DrawerFragment;
-import com.ad.restauranticecream.fragment.LaporanDonasiDetailFragment;
-import com.ad.restauranticecream.fragment.MustahiqDetailFragment;
+import com.ad.restauranticecream.fragment.HomeFrament;
+import com.ad.restauranticecream.fragment.PesananDetailFragment;
 import com.ad.restauranticecream.model.ImageFile;
-import com.ad.restauranticecream.model.LaporanDonasi;
-import com.ad.restauranticecream.model.PickLocation;
+import com.ad.restauranticecream.model.Pesanan;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
 import com.joanzapata.iconify.Iconify;
@@ -63,7 +59,7 @@ public class DrawerActivity extends AppCompatActivity {
     }
 
     public void loadDetailMustahiqFragmentWith(String id_mustahiq) {
-        MustahiqDetailFragment fragment = new MustahiqDetailFragment();
+        HomeFrament fragment = new HomeFrament();
         Bundle args = new Bundle();
         args.putString(RestaurantIceCream.MUSTAHIQ_ID, id_mustahiq);
         fragment.setArguments(args);
@@ -71,33 +67,27 @@ public class DrawerActivity extends AppCompatActivity {
     }
 
 
-    public void loadDetailCalonMustahiqFragmentWith(String id_calon_mustahiq) {
-
-        CalonMustahiqDetailFragment fragment = new CalonMustahiqDetailFragment();
+    public void loadDetailMejaFragmentWith(String id_calon_mustahiq) {
+/*
+        MejaDetailFragment fragment = new MejaDetailFragment();
         Bundle args = new Bundle();
-        args.putString(RestaurantIceCream.CALON_MUSTAHIQ_ID, id_calon_mustahiq);
+        args.putString(RestaurantIceCream.MEJA_ID, id_calon_mustahiq);
+
         fragment.setArguments(args);
-        getSupportFragmentManager().beginTransaction().replace(R.id.detail_fragment, fragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.detail_fragment, fragment).commit();*/
 
     }
 
 
-    public void loadDetailDonasiFragmentWith(String id_mustahiq) {
-        DonasiDetailFragment fragment = new DonasiDetailFragment();
+    public void loadDetailPesananFragmentWith(Pesanan pesanan) {
+       PesananDetailFragment fragment = new PesananDetailFragment();
         Bundle args = new Bundle();
-        args.putString(RestaurantIceCream.CALON_MUSTAHIQ_ID, id_mustahiq);
+        args.putParcelable(RestaurantIceCream.PESANAN_OBJECT, pesanan);
         fragment.setArguments(args);
         getSupportFragmentManager().beginTransaction().replace(R.id.detail_fragment, fragment).commit();
     }
 
 
-    public void loadDetailLaporanDonasiFragmentWith(String id_donasi) {
-        LaporanDonasiDetailFragment fragment = new LaporanDonasiDetailFragment();
-        Bundle args = new Bundle();
-        args.putString(RestaurantIceCream.DONASI_ID, id_donasi);
-        fragment.setArguments(args);
-        getSupportFragmentManager().beginTransaction().replace(R.id.detail_fragment, fragment).commit();
-    }
 
     @Override
     protected void onResume() {
@@ -142,39 +132,8 @@ public class DrawerActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if (requestCode == 1) {
-            if (resultCode == Activity.RESULT_OK) {
-                LaporanDonasi laporanDonasi = data.getParcelableExtra(RestaurantIceCream.LAPORAN_DONASI_OBJECT);
-                if (laporanDonasi != null) {
-
-                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                    DialogDetailDonasiFragment dialogDetailDonasiFragment = new DialogDetailDonasiFragment();
-                    dialogDetailDonasiFragment.setCancelable(false);
-                    dialogDetailDonasiFragment.setData(laporanDonasi);
-                    ft.add(dialogDetailDonasiFragment, null);
-                    ft.commitAllowingStateLoss();
-                }
 
 
-            }
-            if (resultCode == Activity.RESULT_CANCELED) {
-                //Write your code if there's no result
-            }
-        }
-
-
-        if (requestCode == RestaurantIceCream.PLACE_PICKER_REQUEST) {
-            if (resultCode == Activity.RESULT_OK) {
-                Place place = PlacePicker.getPlace(data, this);
-                double latitude = place.getLatLng().latitude;
-                double longitude = place.getLatLng().longitude;
-                String address = place.getAddress().toString();
-                EventBus.getDefault().postSticky(new PickLocation(latitude, longitude, address));
-            }
-            if (resultCode == Activity.RESULT_CANCELED) {
-                //Write your code if there's no result
-            }
-        }
 
         EasyImage.handleActivityResult(requestCode, resultCode, data, this, new DefaultCallback() {
             @Override

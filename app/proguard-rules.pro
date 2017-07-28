@@ -32,3 +32,7 @@
 
 -dontwarn org.w3c.dom.bootstrap.DOMImplementationRegistry
 
+# Ensures entities remain un-obfuscated so table and columns are named correctly
+-keep class com.ad.restauranticecream.** { *; }
+
+

@@ -1,0 +1,53 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.ad.restauranticecream.fragment.HomeFrament">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:text="@string/keterangan_mode"
+            android:textColor="@color/accent"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btn_mode_pelanggan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_half_vertical_margin"
+            android:text="@string/mode_pelanggan"
+            android:background="@color/accent"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_mode_pelayan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_half_vertical_margin"
+            android:text="@string/mode_pelayan"
+            android:background="@color/accent"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_mode_kasir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_half_vertical_margin"
+            android:text="@string/mode_kasir"
+            android:background="@color/accent"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</ScrollView>

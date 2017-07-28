@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.ad.restauranticecream">
 
     <!-- Permissions -->
@@ -21,13 +22,14 @@
     <uses-feature android:name="android.hardware.location.gps" android:required="false"  />
 
     <application
-        android:name="android.support.multidex.MultiDexApplication"
+        android:name=".utils.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:windowSoftInputMode="stateHidden">
+        android:windowSoftInputMode="stateHidden"
+        tools:replace="android:icon">
         <activity
             android:name=".activity.SplashScreenActivity"
             android:label="@string/app_name"
@@ -43,23 +45,35 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.DonasiDetailActivity"
+            android:name=".activity.PesananDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.CalonMustahiqDetailActivity"
+            android:name=".activity.PesananListActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.MustahiqDetailActivity"
+            android:name=".activity.KategoriMenuListActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.ActionDonasiBaruActivity"
+            android:name=".activity.SubKategoriMenuListActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.LaporanDonasiDetailActivity"
+            android:name=".activity.MenuListActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.CariLaporanDonasiActivity"
+            android:name=".activity.PesananBaruDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <meta-data
+            android:name="DATABASE"
+            android:value="ag.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="1" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="true" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.ad.restauranticecream.model" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

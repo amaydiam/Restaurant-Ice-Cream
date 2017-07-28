@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context="com.ad.restauranticecream.fragment.HomeFrament">
+    <LinearLayout
+        android:id="@+id/layout_pesanan_belum_dikirim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.ad.restauranticecream.widget.RobotoLightTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/recycler_view_padding"
+            android:layout_marginRight="@dimen/recycler_view_padding"
+            android:layout_marginTop="@dimen/recycler_view_padding"
+            android:ellipsize="end"
+            android:text="Pesanan Baru Anda (Belum Dikirim)"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_large" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/root_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/recycler_view_padding"
+            android:clickable="true"
+            cardview:cardBackgroundColor="@color/primary"
+            cardview:cardPreventCornerOverlap="false"
+            cardview:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="4dp">
+
+                <com.ad.restauranticecream.widget.RobotoBoldTextView
+                    android:id="@+id/nama_meja"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    tools:text="nama_meja" />
+
+                <com.ad.restauranticecream.widget.RobotoLightTextView
+                    android:id="@+id/nama_pemesan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_large"
+                    tools:text="nama_pemesan" />
+
+                <com.ad.restauranticecream.widget.RobotoLightTextView
+                    android:id="@+id/kode_pesanan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_large"
+                    tools:text="kode_pesanan" />
+
+                <com.ad.restauranticecream.widget.RobotoLightTextView
+
+                    android:id="@+id/jumlah_harga"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="right"
+                    android:textColor="@color/white"
+                    android:textSize="26sp"
+                    tools:text="jumlah_harga" />
+
+                <com.ad.restauranticecream.widget.RobotoLightTextView
+                    android:id="@+id/status_pesanan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_large"
+                    android:visibility="gone"
+                    tools:text="status_pesanan" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_half_vertical_margin"
+                    android:background="@null"
+                    android:text="@string/teruskan"
+                    android:textColor="@color/white"
+                    android:clickable="false"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_pesan_baru"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_half_vertical_margin"
+        android:background="@color/accent"
+        android:text="@string/pesan_baru"
+        android:textColor="@color/white" />
+
+    <com.ad.restauranticecream.widget.RobotoLightTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/recycler_view_padding"
+        android:layout_marginRight="@dimen/recycler_view_padding"
+        android:layout_marginTop="@dimen/recycler_view_padding"
+        android:ellipsize="end"
+        android:text="Pesanan Anda (Menunggu/Sedang Disiapkan)"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_large" />
+    <FrameLayout
+        android:id="@+id/pelanggan_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
