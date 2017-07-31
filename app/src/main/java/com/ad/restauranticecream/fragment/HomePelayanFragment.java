@@ -20,10 +20,21 @@ import butterknife.Unbinder;
  * Use the {@link HomePelayanFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomePelayanFragment extends Fragment   {
+public class HomePelayanFragment extends Fragment {
 
 
-    @OnClick({ R.id.btn_menu, R.id.btn_pesanan})
+    Unbinder unbinder;
+
+    public HomePelayanFragment() {
+        // Required empty public constructor
+    }
+
+    public static HomePelayanFragment newInstance() {
+        HomePelayanFragment fragment = new HomePelayanFragment();
+        return fragment;
+    }
+
+    @OnClick({R.id.btn_menu, R.id.btn_pesanan})
     void ClickMode(View v) {
 
         int id = v.getId();
@@ -43,19 +54,6 @@ public class HomePelayanFragment extends Fragment   {
 
     }
 
-    Unbinder unbinder;
-
-
-    public HomePelayanFragment() {
-        // Required empty public constructor
-    }
-
-    public static HomePelayanFragment newInstance() {
-        HomePelayanFragment fragment = new HomePelayanFragment();
-        return fragment;
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -70,8 +68,6 @@ public class HomePelayanFragment extends Fragment   {
         super.onDestroyView();
         unbinder.unbind();
     }
-
-
 
 
 }

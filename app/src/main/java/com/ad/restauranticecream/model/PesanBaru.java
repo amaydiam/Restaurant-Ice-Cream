@@ -7,15 +7,26 @@ import com.orm.SugarRecord;
 
 public class PesanBaru extends SugarRecord implements Parcelable {
 
-    public PesanBaru() {
+    public static final Creator<PesanBaru> CREATOR = new Creator<PesanBaru>() {
+        @Override
+        public PesanBaru createFromParcel(Parcel in) {
+            return new PesanBaru(in);
+        }
 
-    }
-
+        @Override
+        public PesanBaru[] newArray(int size) {
+            return new PesanBaru[size];
+        }
+    };
     // Attributes
     public String id_menu;
     public String nama_menu;
     public String harga_menu;
     public String jumlah_pesanan;
+
+    public PesanBaru() {
+
+    }
 
     public PesanBaru(String id_menu, String nama_menu, String harga_menu, String jumlah_pesanan) {
         this.id_menu = id_menu;
@@ -38,18 +49,6 @@ public class PesanBaru extends SugarRecord implements Parcelable {
         dest.writeString(harga_menu);
         dest.writeString(jumlah_pesanan);
     }
-
-    public static final Creator<PesanBaru> CREATOR = new Creator<PesanBaru>() {
-        @Override
-        public PesanBaru createFromParcel(Parcel in) {
-            return new PesanBaru(in);
-        }
-
-        @Override
-        public PesanBaru[] newArray(int size) {
-            return new PesanBaru[size];
-        }
-    };
 
     @Override
     public int describeContents() {

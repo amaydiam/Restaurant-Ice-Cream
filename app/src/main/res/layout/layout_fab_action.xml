@@ -12,23 +12,23 @@
         android:id="@+id/fab_navigasi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_half_vertical_margin"
         android:src="@drawable/fab_add"
         android:visibility="gone"
         app:fab_colorNormal="@color/accent"
         app:fab_colorPressed="@color/accent_dark"
-        tools:visibility="visible"
-        android:layout_marginBottom="@dimen/activity_half_vertical_margin"/>
+        tools:visibility="visible" />
 
     <com.github.clans.fab.FloatingActionButton
         android:id="@+id/fab_rekomendasi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_half_vertical_margin"
         android:src="@drawable/fab_add"
         android:visibility="gone"
         app:fab_colorNormal="@color/accent"
         app:fab_colorPressed="@color/accent_dark"
-        tools:visibility="visible"
-        android:layout_marginBottom="@dimen/activity_half_vertical_margin"/>
+        tools:visibility="visible" />
 
     <com.github.clans.fab.FloatingActionButton
         android:id="@+id/fab_action"

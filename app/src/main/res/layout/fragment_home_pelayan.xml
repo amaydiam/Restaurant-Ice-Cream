@@ -19,8 +19,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_half_vertical_margin"
-            android:text="@string/menu"
             android:background="@color/accent"
+            android:text="@string/menu"
             android:textColor="@color/white" />
 
         <Button
@@ -28,8 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_half_vertical_margin"
-            android:text="@string/pesanan"
             android:background="@color/accent"
+            android:text="@string/pesanan"
             android:textColor="@color/white" />
 
     </LinearLayout>

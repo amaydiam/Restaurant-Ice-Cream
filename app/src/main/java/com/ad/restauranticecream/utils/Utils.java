@@ -126,7 +126,6 @@ public class Utils {
     }
 
 
-
     public static String FormatWaktu(String waktu) {
 
 
@@ -139,10 +138,10 @@ public class Utils {
         String hari = separated_waktu[2];
 
         //misal 12 Jul 2017
-        return hari + " " + BulanIndonesia(bulan_waktu) + " " + tahun_waktu +" "+x[1].substring(0,5);
+        return hari + " " + BulanIndonesia(bulan_waktu) + " " + tahun_waktu + " " + x[1].substring(0, 5);
     }
 
-    public static String simpleScheduleDate(String startDate){
+    public static String simpleScheduleDate(String startDate) {
         String target = startDate;
         String result = "";
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -150,7 +149,7 @@ public class Utils {
         try {
             Date res = df.parse(target);
             result = sdf.format(res);
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return result;
@@ -285,7 +284,7 @@ public class Utils {
         } catch (Exception e) {
 
         }
-        return "Rp."+ss.replace(",", ".");
+        return "Rp." + ss.replace(",", ".");
     }
 
     public static String Rupiah(int s) {
@@ -295,6 +294,6 @@ public class Utils {
         } catch (Exception e) {
 
         }
-        return "Rp."+ss.replace(",", ".");
+        return "Rp." + ss.replace(",", ".");
     }
 }

@@ -26,7 +26,17 @@ import butterknife.Unbinder;
  */
 public class HomeFrament extends Fragment implements MasterPasswordFragment.MasterPasswordListener, DialogPickMejaFragment.PickMejaListener {
 
+    Unbinder unbinder;
     private int MODE;
+
+    public HomeFrament() {
+        // Required empty public constructor
+    }
+
+    public static HomeFrament newInstance() {
+        HomeFrament fragment = new HomeFrament();
+        return fragment;
+    }
 
     @OnClick({R.id.btn_mode_pelanggan, R.id.btn_mode_pelayan, R.id.btn_mode_kasir})
     void ClickMode(View v) {
@@ -57,19 +67,6 @@ public class HomeFrament extends Fragment implements MasterPasswordFragment.Mast
         }
 
     }
-
-    Unbinder unbinder;
-
-
-    public HomeFrament() {
-        // Required empty public constructor
-    }
-
-    public static HomeFrament newInstance() {
-        HomeFrament fragment = new HomeFrament();
-        return fragment;
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

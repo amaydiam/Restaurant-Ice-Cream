@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AlertDialog;
@@ -26,7 +25,6 @@ import com.ad.restauranticecream.RestaurantIceCream;
 import com.ad.restauranticecream.activity.KategoriMenuListActivity;
 import com.ad.restauranticecream.model.DetailPesanan;
 import com.ad.restauranticecream.model.PesanBaru;
-import com.ad.restauranticecream.model.Pesanan;
 import com.ad.restauranticecream.utils.ApiHelper;
 import com.ad.restauranticecream.utils.CustomVolley;
 import com.ad.restauranticecream.utils.Prefs;
@@ -41,7 +39,6 @@ import com.android.volley.RequestQueue;
 import com.joanzapata.iconify.IconDrawable;
 import com.joanzapata.iconify.fonts.MaterialCommunityIcons;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -49,7 +46,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import agency.tango.android.avatarview.loader.PicassoLoader;
 import butterknife.BindBool;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -114,7 +110,6 @@ public class PesananBaruDetailFragment extends Fragment implements CustomVolley.
 
 
     private Unbinder unbinder;
-    private PicassoLoader imageLoader;
     private CustomVolley customVolley;
     private RequestQueue queue;
     private ProgressDialog dialogProgress;
@@ -145,17 +140,15 @@ public class PesananBaruDetailFragment extends Fragment implements CustomVolley.
 
                                 List<PesanBaru> pb = PesanBaru.listAll(PesanBaru.class);
                                 int jumlah_list_data = pb.size();
-
-                                for (int ii = 0; ii< jumlah_list_data; ii++) {
+                                String pesan_baru = "";
+                                for (int ii = 0; ii < jumlah_list_data; ii++) {
                                     String id_menu = pb.get(ii).id_menu;
                                     String jumlah_pesanan = pb.get(ii).jumlah_pesanan;
                                     String harga_pesanan = pb.get(ii).harga_menu;
-
-                                    jsonParams.put("id_menu["+(ii++)+"]", id_menu);
-                                    jsonParams.put("jumlah_pesanan["+(ii++)+"]", jumlah_pesanan);
-                                    jsonParams.put("harga_pesanan["+(ii++)+"]", harga_pesanan);
-
+                                    pesan_baru = pesan_baru + "#|" + id_menu + "|" + jumlah_pesanan + "|" + harga_pesanan;
                                 }
+
+                                jsonParams.put("pesanan_baru", pesan_baru);
 
                                 if (!TextUtils.isNullOrEmpty(Prefs.getNamaPelanggan(getActivity()))) {
                                     jsonParams.put(RestaurantIceCream.catatan,
@@ -210,7 +203,6 @@ public class PesananBaruDetailFragment extends Fragment implements CustomVolley.
         unbinder = ButterKnife.bind(this, v);
         customVolley = new CustomVolley(getActivity());
         customVolley.setOnCallbackResponse(this);
-        imageLoader = new PicassoLoader();
 
         // Setup toolbar
         toolbar.setTitle(R.string.loading);

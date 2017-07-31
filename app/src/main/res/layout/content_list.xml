@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:cardview="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
 
     <android.support.v7.widget.CardView
-        android:layout_marginTop="6dp"
+        android:id="@+id/parent_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
         android:layout_marginLeft="6dp"
         android:layout_marginRight="6dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
         cardview:cardBackgroundColor="@color/white"
         cardview:cardPreventCornerOverlap="false"
-        cardview:cardUseCompatPadding="true"
-        android:id="@+id/parent_search">
+        cardview:cardUseCompatPadding="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -25,41 +25,41 @@
             android:orientation="horizontal">
 
             <EditText
-                android:layout_marginLeft="14dp"
-                android:layout_marginRight="14dp"
-                android:layout_centerVertical="true"
                 android:id="@+id/search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/btn_search"
+                android:layout_alignTop="@+id/btn_search"
+                android:layout_centerVertical="true"
 
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
                 android:layout_toLeftOf="@+id/btn_search"
                 android:layout_toStartOf="@+id/btn_search"
-                android:imeOptions="actionSearch"
-                android:hint="@string/type_search"
-                android:inputType="textEmailAddress"
                 android:background="@null"
                 android:focusableInTouchMode="true"
-                android:layout_alignBottom="@+id/btn_search"
-                android:layout_alignTop="@+id/btn_search"/>
+                android:hint="@string/type_search"
+                android:imeOptions="actionSearch"
+                android:inputType="textEmailAddress" />
 
             <com.joanzapata.iconify.widget.IconButton
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
                 android:id="@+id/btn_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@null"
                 android:text="{md-search}"
-                android:textColor="@color/accent"
-                android:background="@null"/>
+                android:textColor="@color/accent" />
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
 
     <android.support.v4.widget.SwipeRefreshLayout
-        android:layout_below="@+id/parent_search"
         android:id="@+id/swipe_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/parent_search"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <RelativeLayout

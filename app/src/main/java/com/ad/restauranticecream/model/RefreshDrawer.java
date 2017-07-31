@@ -5,10 +5,10 @@ package com.ad.restauranticecream.model;
  */
 
 public class RefreshDrawer {
-    private boolean isRefresh=true;
+    private boolean isRefresh = true;
 
     public RefreshDrawer(boolean b) {
-        this.isRefresh=b;
+        this.isRefresh = b;
     }
 
     public boolean isRefresh() {

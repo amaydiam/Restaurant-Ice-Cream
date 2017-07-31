@@ -133,8 +133,8 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> im
 
         }
 
-     //   if (Prefs.getModeApp(activity) == RestaurantIceCream.MODE_PELAYAN)
-       //     holder.btnPesan.setVisibility(View.GONE);
+        if (Prefs.getModeApp(activity) != RestaurantIceCream.MODE_PELANGGAN)
+            holder.btnPesan.setVisibility(View.GONE);
 
         holder.rootParent.setTag(position);
         holder.btnPesan.setTag(position);

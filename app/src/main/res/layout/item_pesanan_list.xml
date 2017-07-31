@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_parent"
@@ -72,38 +71,38 @@
             android:id="@+id/btn_siap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Disiapkan"
+            android:layout_margin="@dimen/activity_half_vertical_margin"
             android:background="@color/accent"
-            android:textColor="@color/white"
-            android:layout_margin="@dimen/activity_half_vertical_margin"/>
+            android:text="Disiapkan"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/btn_nikmati"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dinikmati"
+            android:layout_margin="@dimen/activity_half_vertical_margin"
             android:background="@color/accent"
-            android:textColor="@color/white"
-            android:layout_margin="@dimen/activity_half_vertical_margin"/>
+            android:text="Dinikmati"
+            android:textColor="@color/white" />
 
 
         <Button
             android:id="@+id/btn_batal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Batal"
+            android:layout_margin="@dimen/activity_half_vertical_margin"
             android:background="@color/primary"
-            android:textColor="@color/white"
-            android:layout_margin="@dimen/activity_half_vertical_margin"/>
+            android:text="Batal"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/btn_bayar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dibayar"
+            android:layout_margin="@dimen/activity_half_vertical_margin"
             android:background="@color/accent"
-            android:textColor="@color/white"
-            android:layout_margin="@dimen/activity_half_vertical_margin"/>
+            android:text="Dibayar"
+            android:textColor="@color/white" />
 
 
     </LinearLayout>

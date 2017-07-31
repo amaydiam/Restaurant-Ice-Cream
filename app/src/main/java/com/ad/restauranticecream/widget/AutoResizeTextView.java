@@ -12,9 +12,11 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 
-public class AutoResizeTextView  extends RobotoLightTextView {
+public class AutoResizeTextView extends RobotoLightTextView {
 
-    /** Our ellipsis string. */
+    /**
+     * Our ellipsis string.
+     */
     private static final String mEllipsis = "\u2026";
 
     /**
@@ -23,13 +25,19 @@ public class AutoResizeTextView  extends RobotoLightTextView {
      */
     private float mMaxTextSizePixels;
 
-    /** Lower bounds for text size. */
+    /**
+     * Lower bounds for text size.
+     */
     private float mMinTextSizePixels;
 
-    /** TextView line spacing multiplier. */
+    /**
+     * TextView line spacing multiplier.
+     */
     private float mLineSpacingMultiplier = 1.0f;
 
-    /** TextView additional line spacing. */
+    /**
+     * TextView additional line spacing.
+     */
     private float mLineSpacingExtra = 0.0f;
 
     /**
@@ -69,7 +77,7 @@ public class AutoResizeTextView  extends RobotoLightTextView {
     }
 
     @Override
-    protected void onLayout (boolean changed, int left, int top, int right, int bottom) {
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
         resizeText();
     }
@@ -119,7 +127,7 @@ public class AutoResizeTextView  extends RobotoLightTextView {
      * Sets the lower text size limit and invalidates the view.
      *
      * @param minTextSizeScaledPixels the minimum size to use for text in this view,
-     * in scaled pixels.
+     *                                in scaled pixels.
      */
     public void setMinTextSize(float minTextSizeScaledPixels) {
         mMinTextSizePixels = convertSpToPx(minTextSizeScaledPixels);

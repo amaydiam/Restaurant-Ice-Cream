@@ -49,7 +49,6 @@ public class MasterPasswordFragment extends DialogFragment {
     }
 
 
-
     @OnClick(R.id.btn_konfirmasi)
     void MasterPassword() {
         Utils.HideKeyboard(getActivity(), masterPassword);
@@ -128,13 +127,6 @@ public class MasterPasswordFragment extends DialogFragment {
         return view;
     }
 
-
-    public interface MasterPasswordListener {
-
-        void onFinishMasterPassword();
-    }
-
-
     @Override
     public void onStart() {
         super.onStart();
@@ -143,6 +135,11 @@ public class MasterPasswordFragment extends DialogFragment {
     @Override
     public void onStop() {
         super.onStop();
+    }
+
+    public interface MasterPasswordListener {
+
+        void onFinishMasterPassword();
     }
 
 

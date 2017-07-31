@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_parent"
@@ -17,26 +16,27 @@
         android:layout_height="150dp"
         android:orientation="vertical"
         android:padding="4dp">
+
         <ImageView
             android:id="@+id/gambar_kategori_menu"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:src="@drawable/default_placeholder"
             android:adjustViewBounds="true"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_placeholder" />
 
         <com.ad.restauranticecream.widget.RobotoLightTextView
             android:id="@+id/nama_kategori_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:background="#90000000"
             android:ellipsize="end"
             android:gravity="right"
             android:padding="@dimen/activity_vertical_margin"
             android:textColor="@color/white"
             android:textSize="26sp"
-            tools:text="nama_kategori_menu"
-            android:layout_alignParentBottom="true"/>
+            tools:text="nama_kategori_menu" />
 
 
     </RelativeLayout>

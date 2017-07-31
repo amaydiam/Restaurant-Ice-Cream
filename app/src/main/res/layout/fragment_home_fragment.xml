@@ -27,8 +27,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_half_vertical_margin"
-            android:text="@string/mode_pelanggan"
             android:background="@color/accent"
+            android:text="@string/mode_pelanggan"
             android:textColor="@color/white" />
 
         <Button
@@ -36,8 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_half_vertical_margin"
-            android:text="@string/mode_pelayan"
             android:background="@color/accent"
+            android:text="@string/mode_pelayan"
             android:textColor="@color/white" />
 
         <Button
@@ -45,8 +45,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_half_vertical_margin"
-            android:text="@string/mode_kasir"
             android:background="@color/accent"
+            android:text="@string/mode_kasir"
             android:textColor="@color/white" />
     </LinearLayout>
 

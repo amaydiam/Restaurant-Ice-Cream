@@ -31,6 +31,7 @@ import com.ad.restauranticecream.RestaurantIceCream;
 import com.ad.restauranticecream.activity.DrawerActivity;
 import com.ad.restauranticecream.activity.PesananDetailActivity;
 import com.ad.restauranticecream.adapter.PesananAdapter;
+import com.ad.restauranticecream.model.DataPesananMenunggu;
 import com.ad.restauranticecream.model.Pesanan;
 import com.ad.restauranticecream.utils.ApiHelper;
 import com.ad.restauranticecream.utils.CustomVolley;
@@ -45,6 +46,7 @@ import com.mugen.Mugen;
 import com.mugen.MugenCallbacks;
 import com.sdsmdg.tastytoast.TastyToast;
 
+import org.greenrobot.eventbus.EventBus;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -316,8 +318,7 @@ public class PesananListFragment extends Fragment implements PesananAdapter.OnPe
     public String getUrlToDownload(int page) {
         if (Prefs.getModeApp(getActivity()) == RestaurantIceCream.MODE_PELANGGAN) {
             return ApiHelper.getPesananModePelangganLink(getActivity(), Prefs.getIdMeja(getActivity()), page, keyword);
-        }
-        else if (Prefs.getModeApp(getActivity()) == RestaurantIceCream.MODE_PELAYAN) {
+        } else if (Prefs.getModeApp(getActivity()) == RestaurantIceCream.MODE_PELAYAN) {
             return ApiHelper.getPesananModePelayanLink(getActivity(), page, keyword);
         } else if (Prefs.getModeApp(getActivity()) == RestaurantIceCream.MODE_KASIR) {
             return ApiHelper.getPesananModeKasirLink(getActivity(), page, keyword);
@@ -385,11 +386,12 @@ public class PesananListFragment extends Fragment implements PesananAdapter.OnPe
 
     private void checkData() {
         if (adapter.getItemCount() > 0) {
-
             showNoData(false);
         } else {
             showNoData(true);
         }
+
+        EventBus.getDefault().postSticky(new DataPesananMenunggu(adapter.getItemCount()));
     }
 
 

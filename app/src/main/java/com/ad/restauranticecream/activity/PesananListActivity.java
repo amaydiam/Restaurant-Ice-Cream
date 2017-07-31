@@ -8,8 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.ad.restauranticecream.R;
-import com.ad.restauranticecream.RestaurantIceCream;
-import com.ad.restauranticecream.fragment.PesananDetailFragment;
 import com.ad.restauranticecream.fragment.PesananListFragment;
 import com.joanzapata.iconify.IconDrawable;
 import com.joanzapata.iconify.fonts.MaterialIcons;

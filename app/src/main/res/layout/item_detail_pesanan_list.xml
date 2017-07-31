@@ -10,58 +10,58 @@
         android:id="@+id/no"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="0.10"
         android:ellipsize="end"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/text_large"
-        tools:text="no"
-        android:layout_weight="0.10" />
+        tools:text="no" />
 
     <com.ad.restauranticecream.widget.RobotoLightTextView
         android:id="@+id/nama_menu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_half_vertical_margin"
+        android:layout_marginRight="@dimen/activity_half_vertical_margin"
+        android:layout_weight="0.20"
         android:ellipsize="end"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/text_large"
-        tools:text="nama_menu"
-        android:layout_weight="0.20"
-        android:layout_marginLeft="@dimen/activity_half_vertical_margin"
-        android:layout_marginRight="@dimen/activity_half_vertical_margin"/>
+        tools:text="nama_menu" />
 
 
     <com.ad.restauranticecream.widget.RobotoLightTextView
         android:id="@+id/jumlah_pesanan"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="0.20"
         android:ellipsize="end"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/text_large"
-        tools:text="jumlah_pesanan"
-        android:layout_weight="0.20" />
+        tools:text="jumlah_pesanan" />
 
     <com.ad.restauranticecream.widget.RobotoLightTextView
         android:id="@+id/harga_pesanan"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_half_vertical_margin"
+        android:layout_marginRight="@dimen/activity_half_vertical_margin"
+        android:layout_weight="0.25"
         android:ellipsize="end"
+        android:gravity="right"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/text_large"
-        tools:text="harga_pesanan"
-        android:layout_weight="0.25"
-        android:gravity="right"
-        android:layout_marginLeft="@dimen/activity_half_vertical_margin"
-        android:layout_marginRight="@dimen/activity_half_vertical_margin" />
+        tools:text="harga_pesanan" />
 
     <com.ad.restauranticecream.widget.RobotoLightTextView
         android:id="@+id/total_harga_pesanan"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="0.25"
         android:ellipsize="end"
+        android:gravity="right"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/text_large"
-        tools:text="total_harga_pesanan"
-        android:layout_weight="0.25"
-        android:gravity="right" />
+        tools:text="total_harga_pesanan" />
 
 </TableRow>
 

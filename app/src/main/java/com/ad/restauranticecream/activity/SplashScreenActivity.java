@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ad.restauranticecream.BuildConfig;
-import com.ad.restauranticecream.R; import com.ad.restauranticecream.R2;
+import com.ad.restauranticecream.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -58,7 +58,7 @@ public class PesananAdapter extends RecyclerView.Adapter<PesananAdapter.ViewHold
     public boolean onTouch(View v, MotionEvent event) {
 
         final int viewId = v.getId();
-        if (viewId == R.id.btn_siap || viewId==R.id.btn_nikmati || viewId == R.id.btn_batal || viewId == R.id.btn_bayar) {
+        if (viewId == R.id.btn_siap || viewId == R.id.btn_nikmati || viewId == R.id.btn_batal || viewId == R.id.btn_bayar) {
             if (gestureDetector.onTouchEvent(event)) {
                 if (OnPesananItemClickListener != null) {
                     AudioManager audioManager = (AudioManager) activity.getSystemService(Context.AUDIO_SERVICE);
@@ -117,7 +117,7 @@ public class PesananAdapter extends RecyclerView.Adapter<PesananAdapter.ViewHold
         holder.namaPemesan.setText("Nama Pemesan : " + (TextUtils.isNullOrEmpty(pesanan.nama_pemesan) ? "-" : pesanan.nama_pemesan));
         holder.kodePesanan.setText("Kode Pesanan : " + (TextUtils.isNullOrEmpty(pesanan.kode_pesanan) ? "-" : pesanan.kode_pesanan));
         holder.statusPesanan.setText("Status : " + (TextUtils.isNullOrEmpty(pesanan.status_pesanan) ? "-" : pesanan.status_pesanan));
-        holder.jumlahHarga.setText("Total : "+Utils.Rupiah(pesanan.total_harga));
+        holder.jumlahHarga.setText("Total : " + Utils.Rupiah(pesanan.total_harga));
 
         if (isTablet) {
             if (selected == position)
@@ -147,8 +147,7 @@ public class PesananAdapter extends RecyclerView.Adapter<PesananAdapter.ViewHold
             holder.btnNikmati.setVisibility(View.GONE);
             holder.btnBatal.setVisibility(View.GONE);
             holder.btnBayar.setVisibility(View.VISIBLE);
-        }
-        else{
+        } else {
             holder.btnSiap.setVisibility(View.GONE);
             holder.btnNikmati.setVisibility(View.GONE);
             holder.btnBatal.setVisibility(View.GONE);
@@ -207,7 +206,7 @@ public class PesananAdapter extends RecyclerView.Adapter<PesananAdapter.ViewHold
     }
 
     public void changeDisiapkan(int position) {
-        data.get(position).status_pesanan="Pesanan Sedang Disiapkan";
+        data.get(position).status_pesanan = "Pesanan Sedang Disiapkan";
         notifyDataSetChanged();
     }
 

@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -186,7 +185,7 @@ public class SubKategoriMenuListFragment extends Fragment implements SubKategori
 
         hideSoftKeyboard();
 
-            parentSearch.setVisibility(View.GONE);
+        parentSearch.setVisibility(View.GONE);
         //inisial adapterSubKategoriMenu
         adapter = new SubKategoriMenuAdapter(activity, data, isTablet);
         adapter.setOnSubKategoriMenuItemClickListener(this);
@@ -233,11 +232,11 @@ public class SubKategoriMenuListFragment extends Fragment implements SubKategori
             }
         }).start();
 
-        if (Prefs.getModeApp(getActivity()) == RestaurantIceCream.MODE_PELANGGAN)
+        if (Prefs.getModeApp(getActivity()) == RestaurantIceCream.MODE_PELAYAN)
             fabAction.setVisibility(View.VISIBLE);
         else
             fabAction.setVisibility(View.GONE);
-        
+
         fabScrollUp.setImageDrawable(
                 new IconDrawable(getActivity(), MaterialCommunityIcons.mdi_arrow_up)
                         .colorRes(R.color.primary));
@@ -322,7 +321,7 @@ public class SubKategoriMenuListFragment extends Fragment implements SubKategori
     }
 
     public String getUrlToDownload(int page) {
-            return ApiHelper.getSubKategoriMenuLink(getActivity(),kategoriMenu.id_kategori_menu, page);
+        return ApiHelper.getSubKategoriMenuLink(getActivity(), kategoriMenu.id_kategori_menu, page);
     }
 
 
@@ -473,7 +472,7 @@ public class SubKategoriMenuListFragment extends Fragment implements SubKategori
 
     @Override
     public void onVolleyStart(String TAG) {
-        if ( TAG.equals(TAG_BATAL)) {
+        if (TAG.equals(TAG_BATAL)) {
             startProgress(TAG);
         } else {
             showProgresMore(false);
@@ -510,7 +509,7 @@ public class SubKategoriMenuListFragment extends Fragment implements SubKategori
     @Override
     public void onVolleySuccessResponse(String TAG, String response) {
 
-        if (TAG.equals(TAG_BATAL) ) {
+        if (TAG.equals(TAG_BATAL)) {
             ResponeDelete(response);
 
         } else {

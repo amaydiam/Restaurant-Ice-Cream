@@ -76,7 +76,7 @@ public class ManagePesanBaruFragment extends DialogFragment {
                     pb.save();
                 } else if (action.equals("edit")) {
 
-                    List<PesanBaru> p = PesanBaru.find(PesanBaru.class,  NamingHelper.toSQLNameDefault("id_menu")+ "= ?", pesan_baru.id_menu);
+                    List<PesanBaru> p = PesanBaru.find(PesanBaru.class, NamingHelper.toSQLNameDefault("id_menu") + "= ?", pesan_baru.id_menu);
                     PesanBaru z = p.get(0);
                     z.jumlah_pesanan = val_jumlah_pesanan; // modify the values
                     z.save();
@@ -100,7 +100,7 @@ public class ManagePesanBaruFragment extends DialogFragment {
         alertDialogBuilder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
-                List<PesanBaru> p = PesanBaru.find(PesanBaru.class,  NamingHelper.toSQLNameDefault("id_menu")+ "= ?", pesan_baru.id_menu);
+                List<PesanBaru> p = PesanBaru.find(PesanBaru.class, NamingHelper.toSQLNameDefault("id_menu") + "= ?", pesan_baru.id_menu);
                 PesanBaru z = p.get(0);
                 z.delete();
                 dismiss();

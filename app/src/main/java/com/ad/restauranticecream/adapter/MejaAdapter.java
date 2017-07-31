@@ -1,32 +1,22 @@
 package com.ad.restauranticecream.adapter;
 
 import android.app.Activity;
-import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
-import android.media.AudioManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.util.SparseBooleanArray;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
-import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.ad.restauranticecream.R;
 import com.ad.restauranticecream.model.Meja;
-import com.ad.restauranticecream.utils.TextUtils;
 import com.ad.restauranticecream.widget.RobotoBoldTextView;
-import com.ad.restauranticecream.widget.RobotoLightTextView;
-import com.joanzapata.iconify.widget.IconButton;
 
 import java.util.ArrayList;
 
-import agency.tango.android.avatarview.loader.PicassoLoader;
-import agency.tango.android.avatarview.views.AvatarView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -34,7 +24,6 @@ public class MejaAdapter extends RecyclerView.Adapter<MejaAdapter.ViewHolder> im
 
     public final ArrayList<Meja> data;
     private final GestureDetector gestureDetector;
-    private boolean isTablet = false;
     private String keyword_alamat;
     private Activity activity;
     private SparseBooleanArray mSelectedItemsIds;
@@ -42,12 +31,11 @@ public class MejaAdapter extends RecyclerView.Adapter<MejaAdapter.ViewHolder> im
     private OnMejaItemClickListener OnMejaItemClickListener;
 
 
-    public MejaAdapter(Activity activity, ArrayList<Meja> mejaList, boolean isTable) {
+    public MejaAdapter(Activity activity, ArrayList<Meja> mejaList) {
         this.activity = activity;
         this.data = mejaList;
         mSelectedItemsIds = new SparseBooleanArray();
         gestureDetector = new GestureDetector(activity, new SingleTapConfirm());
-        this.isTablet = isTable;
 
     }
 
@@ -110,15 +98,7 @@ public class MejaAdapter extends RecyclerView.Adapter<MejaAdapter.ViewHolder> im
         Meja meja = data.get(position);
         holder.namaMeja.setText(meja.nama_meja);
 
-        if (isTablet) {
-            if (selected == position)
-                holder.rootParent.setBackgroundColor(ContextCompat.getColor(activity, R.color.card_selected_background));
-            else
-                holder.rootParent.setBackgroundColor(ContextCompat.getColor(activity, R.color.card_background));
-        } else {
-            holder.rootParent.setBackgroundColor(ContextCompat.getColor(activity, R.color.card_background));
-
-        }
+        holder.rootParent.setBackgroundColor(ContextCompat.getColor(activity, R.color.card_background));
 
         holder.rootParent.setTag(position);
 
@@ -174,10 +154,10 @@ public class MejaAdapter extends RecyclerView.Adapter<MejaAdapter.ViewHolder> im
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        
+
         @BindView(R.id.nama_meja)
         RobotoBoldTextView namaMeja;
-      
+
         @BindView(R.id.root_parent)
         CardView rootParent;
 

@@ -7,6 +7,7 @@
     android:fillViewport="true"
     android:orientation="vertical"
     tools:context="com.ad.restauranticecream.fragment.HomeFrament">
+
     <LinearLayout
         android:id="@+id/layout_pesanan_belum_dikirim"
         android:layout_width="match_parent"
@@ -87,14 +88,15 @@
                     android:textSize="@dimen/text_large"
                     android:visibility="gone"
                     tools:text="status_pesanan" />
+
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/activity_half_vertical_margin"
                     android:background="@null"
+                    android:clickable="false"
                     android:text="@string/teruskan"
-                    android:textColor="@color/white"
-                    android:clickable="false"/>
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 
@@ -112,6 +114,7 @@
         android:textColor="@color/white" />
 
     <com.ad.restauranticecream.widget.RobotoLightTextView
+        android:id="@+id/ket_pesanan_menunggu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/recycler_view_padding"
@@ -121,6 +124,7 @@
         android:text="Pesanan Anda (Menunggu/Sedang Disiapkan)"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/text_large" />
+
     <FrameLayout
         android:id="@+id/pelanggan_fragment"
         android:layout_width="match_parent"

@@ -14,7 +14,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,7 +48,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import butterknife.BindBool;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -70,8 +68,6 @@ public class DialogPickMejaFragment extends DialogFragment implements MejaAdapte
     private static final String TAG_PICK_MEJA = "TAG_PICK_MEJA";
 
     public MejaAdapter adapterMeja;
-    @BindBool(R.bool.is_tablet)
-    boolean isTablet;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.recyclerview)
@@ -186,7 +182,7 @@ public class DialogPickMejaFragment extends DialogFragment implements MejaAdapte
 
         parentSearch.setVisibility(View.GONE);
         //inisial adapterMeja
-        adapterMeja = new MejaAdapter(activity, dataMejas, isTablet);
+        adapterMeja = new MejaAdapter(activity, dataMejas);
         adapterMeja.setOnMejaItemClickListener(this);
 
         //recyclerView
@@ -365,11 +361,6 @@ public class DialogPickMejaFragment extends DialogFragment implements MejaAdapte
                             //     TastyToast.makeText(activity, "tidak ada dataMejas baru...", TastyToast.LENGTH_LONG, TastyToast.INFO);
                             break;
                     }
-                }
-
-                if (isTablet && page == 1 && adapterMeja.data.size() > 0) {
-                    adapterMeja.setSelected(0);
-                    ((DrawerActivity) getActivity()).loadDetailMejaFragmentWith(adapterMeja.data.get(0).id_meja);
                 }
 
                 page = page + 1;
@@ -596,16 +587,7 @@ public class DialogPickMejaFragment extends DialogFragment implements MejaAdapte
 
     public int getNumberOfColumns() {
         // Get screen width
-        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        float widthPx = displayMetrics.widthPixels;
-        if (isTablet) {
-            widthPx = widthPx / 3;
-        }
-        // Calculate desired width
-
-        float desiredPx = getResources().getDimensionPixelSize(R.dimen.movie_list_card_width);
-        int columns = Math.round(widthPx / desiredPx);
-        return columns > 1 ? columns : 1;
+        return 1;
     }
 
     @Override

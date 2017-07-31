@@ -14,7 +14,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.ad.restauranticecream.R; import com.ad.restauranticecream.R2;
+import com.ad.restauranticecream.R;
 import com.nineoldandroids.view.ViewHelper;
 
 import java.util.HashMap;
@@ -23,28 +23,31 @@ import java.util.LinkedHashMap;
 public class JazzyViewPager extends ViewPager {
 
     public static final String TAG = "JazzyViewPager";
-
-    private boolean mEnabled = true;
-    private boolean mFadeEnabled = false;
-    private boolean mOutlineEnabled = false;
-    public static int sOutlineColor = Color.WHITE;
-    private TransitionEffect mEffect = TransitionEffect.Standard;
-
-    private HashMap<Integer, Object> mObjs = new LinkedHashMap<Integer, Object>();
-
     private static final float SCALE_MAX = 0.5f;
     private static final float ZOOM_MAX = 0.5f;
     private static final float ROT_MAX = 15.0f;
-
-    public enum TransitionEffect {
-        Standard, Tablet, CubeIn, CubeOut, FlipVertical, FlipHorizontal, Stack, ZoomIn, ZoomOut, RotateUp, RotateDown, Accordion
-    }
-
     private static final boolean API_11;
+    public static int sOutlineColor = Color.WHITE;
 
     static {
         API_11 = Build.VERSION.SDK_INT >= 11;
     }
+
+    private boolean mEnabled = true;
+    private boolean mFadeEnabled = false;
+    private boolean mOutlineEnabled = false;
+    private TransitionEffect mEffect = TransitionEffect.Standard;
+    private HashMap<Integer, Object> mObjs = new LinkedHashMap<Integer, Object>();
+    private State mState;
+    private int oldPage;
+    private View mLeft;
+    private View mRight;
+    private float mRot;
+    private float mTrans;
+    private float mScale;
+    private Matrix mMatrix = new Matrix();
+    private Camera mCamera = new Camera();
+    private float[] mTempFloat2 = new float[2];
 
     public JazzyViewPager(Context context) {
         this(context, null);
@@ -84,12 +87,12 @@ public class JazzyViewPager extends ViewPager {
         mEnabled = enabled;
     }
 
-    public void setFadeEnabled(boolean enabled) {
-        mFadeEnabled = enabled;
-    }
-
     public boolean getFadeEnabled() {
         return mFadeEnabled;
+    }
+
+    public void setFadeEnabled(boolean enabled) {
+        mFadeEnabled = enabled;
     }
 
     public void setOutlineEnabled(boolean enabled) {
@@ -142,24 +145,6 @@ public class JazzyViewPager extends ViewPager {
         super.addView(wrapChild(child), index, params);
     }
 
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent arg0) {
-        return mEnabled ? super.onInterceptTouchEvent(arg0) : false;
-    }
-
-    private State mState;
-    private int oldPage;
-
-    private View mLeft;
-    private View mRight;
-    private float mRot;
-    private float mTrans;
-    private float mScale;
-
-    private enum State {
-        IDLE, GOING_LEFT, GOING_RIGHT
-    }
-
     // public void reset() {
     // resetPrivate();
     // int curr = getCurrentItem();
@@ -194,6 +179,11 @@ public class JazzyViewPager extends ViewPager {
     // logState(v, "Child " + i);
     // }
     // }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent arg0) {
+        return mEnabled && super.onInterceptTouchEvent(arg0);
+    }
 
     private void logState(View v, String title) {
         Log.v(TAG,
@@ -450,10 +440,6 @@ public class JazzyViewPager extends ViewPager {
         }
     }
 
-    private Matrix mMatrix = new Matrix();
-    private Camera mCamera = new Camera();
-    private float[] mTempFloat2 = new float[2];
-
     protected float getOffsetXForRotation(float degrees, int width, int height) {
         mMatrix.reset();
         mCamera.save();
@@ -596,5 +582,13 @@ public class JazzyViewPager extends ViewPager {
 
     public void setSwipeable(boolean swipeable) {
         this.mEnabled = swipeable;
+    }
+
+    public enum TransitionEffect {
+        Standard, Tablet, CubeIn, CubeOut, FlipVertical, FlipHorizontal, Stack, ZoomIn, ZoomOut, RotateUp, RotateDown, Accordion
+    }
+
+    private enum State {
+        IDLE, GOING_LEFT, GOING_RIGHT
     }
 }

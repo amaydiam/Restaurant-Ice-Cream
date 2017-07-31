@@ -19,8 +19,9 @@ import java.util.Map;
 public class CustomVolley {
 
     public OnCallbackResponse OnCallbackResponse;
-    private Context activity;
     public int statusCode;
+    private Context activity;
+
     public CustomVolley(Context c) {
         activity = c;
     }
@@ -38,7 +39,7 @@ public class CustomVolley {
             for (Map.Entry<String, String> entry : jsonParams.entrySet()) {
                 String key = entry.getKey();
                 String value = entry.getValue();
-                Log.v(key+" : ", value);
+                Log.v(key + " : ", value);
             }
         }
         RequestQueue queue = Volley.newRequestQueue(activity);
@@ -73,7 +74,7 @@ public class CustomVolley {
         }) {
             @Override
             protected Response<String> parseNetworkResponse(NetworkResponse response) {
-                statusCode=response.statusCode;
+                statusCode = response.statusCode;
                 //Prefs.putDeviceId(activity, deviceid);
                 return super.parseNetworkResponse(response);
             }
@@ -102,8 +103,11 @@ public class CustomVolley {
 
     public interface OnCallbackResponse {
         void onVolleyStart(String TAG);
+
         void onVolleyEnd(String TAG);
+
         void onVolleySuccessResponse(String TAG, String response);
+
         void onVolleyErrorResponse(String TAG, String response);
     }
 }

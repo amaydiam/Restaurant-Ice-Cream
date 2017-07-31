@@ -9,10 +9,11 @@ import java.text.DecimalFormat;
 
 public class RupiahTextWatcher implements TextWatcher {
 
+    @SuppressWarnings("unused")
+    private static final String TAG = "NumberTextWatcher";
     private DecimalFormat df;
     private DecimalFormat dfnd;
     private boolean hasFractionalPart;
-
     private EditText et;
 
     public RupiahTextWatcher(EditText et) {
@@ -23,9 +24,6 @@ public class RupiahTextWatcher implements TextWatcher {
         hasFractionalPart = false;
     }
 
-    @SuppressWarnings("unused")
-    private static final String TAG = "NumberTextWatcher";
-
     @Override
     public void afterTextChanged(Editable s) {
         et.removeTextChangedListener(this);
@@ -34,7 +32,7 @@ public class RupiahTextWatcher implements TextWatcher {
 
             String x;
             x = et.getText().toString();
-            if(x.length()==0){
+            if (x.length() == 0) {
                 et.setText("0");
                 et.setSelection(1);
             }
@@ -73,11 +71,7 @@ public class RupiahTextWatcher implements TextWatcher {
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-        if (s.toString().contains(String.valueOf(df.getDecimalFormatSymbols().getDecimalSeparator()))) {
-            hasFractionalPart = true;
-        } else {
-            hasFractionalPart = false;
-        }
+        hasFractionalPart = s.toString().contains(String.valueOf(df.getDecimalFormatSymbols().getDecimalSeparator()));
     }
 
 }

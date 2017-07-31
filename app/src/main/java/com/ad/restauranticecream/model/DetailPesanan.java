@@ -6,14 +6,25 @@ import android.os.Parcelable;
 public class DetailPesanan implements Parcelable {
 
 
+    public static final Creator<DetailPesanan> CREATOR = new Creator<DetailPesanan>() {
+        @Override
+        public DetailPesanan createFromParcel(Parcel in) {
+            return new DetailPesanan(in);
+        }
+
+        @Override
+        public DetailPesanan[] newArray(int size) {
+            return new DetailPesanan[size];
+        }
+    };
     // Attributes
-    public String   id_detail_pesanan;
-    public String  id_pesanan;
-    public String  id_menu;
-    public String  jumlah_pesanan;
-    public String  harga_pesanan;
-    public String  nama_menu;
-    public String  total_harga_pesanan;
+    public String id_detail_pesanan;
+    public String id_pesanan;
+    public String id_menu;
+    public String jumlah_pesanan;
+    public String harga_pesanan;
+    public String nama_menu;
+    public String total_harga_pesanan;
 
     public DetailPesanan(String id_detail_pesanan, String id_pesanan, String id_menu, String jumlah_pesanan, String harga_pesanan, String nama_menu, String total_harga_pesanan) {
         this.id_detail_pesanan = id_detail_pesanan;
@@ -45,18 +56,6 @@ public class DetailPesanan implements Parcelable {
         dest.writeString(nama_menu);
         dest.writeString(total_harga_pesanan);
     }
-
-    public static final Creator<DetailPesanan> CREATOR = new Creator<DetailPesanan>() {
-        @Override
-        public DetailPesanan createFromParcel(Parcel in) {
-            return new DetailPesanan(in);
-        }
-
-        @Override
-        public DetailPesanan[] newArray(int size) {
-            return new DetailPesanan[size];
-        }
-    };
 
     public int describeContents() {
         return 0;

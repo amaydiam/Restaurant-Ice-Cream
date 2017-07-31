@@ -46,7 +46,6 @@ import com.joanzapata.iconify.fonts.FontAwesomeModule;
 import com.joanzapata.iconify.fonts.MaterialCommunityModule;
 import com.joanzapata.iconify.fonts.MaterialIcons;
 import com.joanzapata.iconify.fonts.MaterialModule;
-import com.squareup.picasso.Picasso;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -83,12 +82,43 @@ public class ManageMenuFragment extends DialogFragment implements CustomVolley.O
     RobotoRegularEditText hargaMenu;
     @BindView(R.id.stok_menu)
     RobotoRegularEditText stokMenu;
+    PermissionListener permissionGetFotoListener = new PermissionListener() {
+        @Override
+        public void onPermissionGranted() {
+
+            EasyImage.openChooserWithGallery(getActivity(), getString(R.string.pick_source), 0);
+        }
+
+        @Override
+        public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+
+            String message = String.format(Locale.getDefault(), getString(R.string.message_denied), "WRITE STORAGE EKSTERNAL");
+            Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+        }
 
 
+    };
     private String val_server_gambar_menu;
-
     private File fileGambarMenu;
     private String idSubKategoriMenu;
+    private SnackBar snackbar;
+    private CustomVolley customVolley;
+    private RequestQueue queue;
+    private ProgressDialog dialogProgress;
+    private Unbinder butterKnife;
+    private String val_id_menu;
+    private String val_nama_menu = "";
+    private String val_harga_menu = "";
+    private String val_stok_menu = "";
+    private com.ad.restauranticecream.model.Menu Menu;
+    private Dialog alertDialog;
+    private AddEditMenuListener callback;
+    private String action;
+
+
+    public ManageMenuFragment() {
+
+    }
 
     @OnClick(R.id.gambar_menu)
     void GAMBAR_SUB_KATEGORI_MENU() {
@@ -98,7 +128,6 @@ public class ManageMenuFragment extends DialogFragment implements CustomVolley.O
             getFoto();
         }
     }
-
 
     void OpenDialog() {
         final String[] option = new String[]{"View", "Change"};
@@ -132,46 +161,6 @@ public class ManageMenuFragment extends DialogFragment implements CustomVolley.O
                 .setDeniedMessage(String.format(getString(R.string.upload_document_permission), "PHOTO SUB_KATEGORI MENU"))
                 .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
                 .check();
-    }
-
-
-    PermissionListener permissionGetFotoListener = new PermissionListener() {
-        @Override
-        public void onPermissionGranted() {
-
-            EasyImage.openChooserWithGallery(getActivity(), getString(R.string.pick_source), 0);
-        }
-
-        @Override
-        public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-
-            String message = String.format(Locale.getDefault(), getString(R.string.message_denied), "WRITE STORAGE EKSTERNAL");
-            Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-        }
-
-
-    };
-
-
-    private SnackBar snackbar;
-    private CustomVolley customVolley;
-    private RequestQueue queue;
-    private ProgressDialog dialogProgress;
-    private Unbinder butterKnife;
-
-    private String val_id_menu;
-    private String val_nama_menu = "";
-    private String val_harga_menu = "";
-    private String val_stok_menu = "";
-
-
-    private com.ad.restauranticecream.model.Menu Menu;
-    private Dialog alertDialog;
-    private AddEditMenuListener callback;
-    private String action;
-
-    public ManageMenuFragment() {
-
     }
 
     void Action(int id) {
@@ -453,16 +442,6 @@ public class ManageMenuFragment extends DialogFragment implements CustomVolley.O
         this.idSubKategoriMenu = idSubKategoriMenu;
     }
 
-
-    public interface AddEditMenuListener {
-        void onFinishEditMenu(com.ad.restauranticecream.model.Menu menu);
-
-        void onFinishAddMenu(com.ad.restauranticecream.model.Menu menu);
-
-        void onFinishDeleteMenu(com.ad.restauranticecream.model.Menu menu);
-    }
-
-
     @Override
     public void onStart() {
         super.onStart();
@@ -474,7 +453,6 @@ public class ManageMenuFragment extends DialogFragment implements CustomVolley.O
         EventBus.getDefault().unregister(this);
         super.onStop();
     }
-
 
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     public void onImageFile(ImageFile cp) {
@@ -491,7 +469,6 @@ public class ManageMenuFragment extends DialogFragment implements CustomVolley.O
         checkGambarMenu();
     }
 
-
     private void checkGambarMenu() {
 
         if (val_server_gambar_menu != null) {
@@ -503,9 +480,10 @@ public class ManageMenuFragment extends DialogFragment implements CustomVolley.O
                     .into(imgGambarMenu);
 
         } else {
-            Picasso.with(getActivity())
+            Glide.with(this)
                     .load(R.drawable.default_placeholder)
-                    .resize(200, 200)
+                    .asBitmap()
+                    .override(200, 200)
                     .centerCrop()
                     .into(imgGambarMenu);
         }
@@ -519,6 +497,15 @@ public class ManageMenuFragment extends DialogFragment implements CustomVolley.O
                     .into(imgGambarMenu);
         }
 
+    }
+
+
+    public interface AddEditMenuListener {
+        void onFinishEditMenu(com.ad.restauranticecream.model.Menu menu);
+
+        void onFinishAddMenu(com.ad.restauranticecream.model.Menu menu);
+
+        void onFinishDeleteMenu(com.ad.restauranticecream.model.Menu menu);
     }
 
 

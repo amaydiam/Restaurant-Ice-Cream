@@ -27,8 +27,8 @@ import android.widget.Toast;
 
 import com.ad.restauranticecream.R;
 import com.ad.restauranticecream.RestaurantIceCream;
-import com.ad.restauranticecream.model.KategoriMenu;
 import com.ad.restauranticecream.model.ImageFile;
+import com.ad.restauranticecream.model.KategoriMenu;
 import com.ad.restauranticecream.utils.ApiHelper;
 import com.ad.restauranticecream.utils.CustomVolley;
 import com.ad.restauranticecream.utils.Menus;
@@ -47,7 +47,6 @@ import com.joanzapata.iconify.fonts.FontAwesomeModule;
 import com.joanzapata.iconify.fonts.MaterialCommunityModule;
 import com.joanzapata.iconify.fonts.MaterialIcons;
 import com.joanzapata.iconify.fonts.MaterialModule;
-import com.squareup.picasso.Picasso;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -80,11 +79,40 @@ public class ManageKategoriMenuFragment extends DialogFragment implements Custom
     ImageView imgGambarKategoriMenu;
     @BindView(R.id.coordinatorLayout)
     CoordinatorLayout coordinatorLayout;
+    PermissionListener permissionGetFotoListener = new PermissionListener() {
+        @Override
+        public void onPermissionGranted() {
+
+            EasyImage.openChooserWithGallery(getActivity(), getString(R.string.pick_source), 0);
+        }
+
+        @Override
+        public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+
+            String message = String.format(Locale.getDefault(), getString(R.string.message_denied), "WRITE STORAGE EKSTERNAL");
+            Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+        }
 
 
+    };
     private String val_server_gambar_kategori_menu;
-
     private File fileGambarKategoriMenu;
+    private SnackBar snackbar;
+    private CustomVolley customVolley;
+    private RequestQueue queue;
+    private ProgressDialog dialogProgress;
+    private Unbinder butterKnife;
+    private String val_id_kategori_menu;
+    private String val_nama_kategori_menu = "";
+    private KategoriMenu kategoriMenu;
+    private Dialog alertDialog;
+    private AddEditKategoriMenuListener callback;
+    private String action;
+
+
+    public ManageKategoriMenuFragment() {
+
+    }
 
     @OnClick(R.id.gambar_kategori_menu)
     void GAMBAR_KATEGORI_MENU() {
@@ -94,7 +122,6 @@ public class ManageKategoriMenuFragment extends DialogFragment implements Custom
             getFoto();
         }
     }
-
 
     void OpenDialog() {
         final String[] option = new String[]{"View", "Change"};
@@ -128,44 +155,6 @@ public class ManageKategoriMenuFragment extends DialogFragment implements Custom
                 .setDeniedMessage(String.format(getString(R.string.upload_document_permission), "PHOTO KATEGORI MENU"))
                 .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
                 .check();
-    }
-
-
-    PermissionListener permissionGetFotoListener = new PermissionListener() {
-        @Override
-        public void onPermissionGranted() {
-
-            EasyImage.openChooserWithGallery(getActivity(), getString(R.string.pick_source), 0);
-        }
-
-        @Override
-        public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-
-            String message = String.format(Locale.getDefault(), getString(R.string.message_denied), "WRITE STORAGE EKSTERNAL");
-            Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-        }
-
-
-    };
-
-
-    private SnackBar snackbar;
-    private CustomVolley customVolley;
-    private RequestQueue queue;
-    private ProgressDialog dialogProgress;
-    private Unbinder butterKnife;
-
-    private String val_id_kategori_menu;
-    private String val_nama_kategori_menu = "";
-
-
-    private KategoriMenu kategoriMenu;
-    private Dialog alertDialog;
-    private AddEditKategoriMenuListener callback;
-    private String action;
-
-    public ManageKategoriMenuFragment() {
-
     }
 
     void Action(int id) {
@@ -430,16 +419,6 @@ public class ManageKategoriMenuFragment extends DialogFragment implements Custom
         }
     }
 
-
-    public interface AddEditKategoriMenuListener {
-        void onFinishEditKategoriMenu(KategoriMenu kategori_menu);
-
-        void onFinishAddKategoriMenu(KategoriMenu kategori_menu);
-
-        void onFinishDeleteKategoriMenu(KategoriMenu kategori_menu);
-    }
-
-
     @Override
     public void onStart() {
         super.onStart();
@@ -451,7 +430,6 @@ public class ManageKategoriMenuFragment extends DialogFragment implements Custom
         EventBus.getDefault().unregister(this);
         super.onStop();
     }
-
 
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     public void onImageFile(ImageFile cp) {
@@ -468,7 +446,6 @@ public class ManageKategoriMenuFragment extends DialogFragment implements Custom
         checkGambarKategoriMenu();
     }
 
-
     private void checkGambarKategoriMenu() {
 
         if (val_server_gambar_kategori_menu != null) {
@@ -480,9 +457,11 @@ public class ManageKategoriMenuFragment extends DialogFragment implements Custom
                     .into(imgGambarKategoriMenu);
 
         } else {
-            Picasso.with(getActivity())
+
+            Glide.with(this)
                     .load(R.drawable.default_placeholder)
-                    .resize(200, 200)
+                    .asBitmap()
+                    .override(200, 200)
                     .centerCrop()
                     .into(imgGambarKategoriMenu);
         }
@@ -496,6 +475,15 @@ public class ManageKategoriMenuFragment extends DialogFragment implements Custom
                     .into(imgGambarKategoriMenu);
         }
 
+    }
+
+
+    public interface AddEditKategoriMenuListener {
+        void onFinishEditKategoriMenu(KategoriMenu kategori_menu);
+
+        void onFinishAddKategoriMenu(KategoriMenu kategori_menu);
+
+        void onFinishDeleteKategoriMenu(KategoriMenu kategori_menu);
     }
 
 

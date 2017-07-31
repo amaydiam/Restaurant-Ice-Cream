@@ -11,23 +11,40 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 
-import com.ad.restauranticecream.R; import com.ad.restauranticecream.R2;
+import com.ad.restauranticecream.R;
 import com.ad.restauranticecream.utils.Utils;
 
 
 public class OutlineContainer extends FrameLayout implements Animatable {
 
-    private Paint mOutlinePaint;
-
-    private boolean mIsRunning = false;
-    private long mStartTime;
-    private float mAlpha = 1.0f;
     private static final long ANIMATION_DURATION = 500;
     private static final long FRAME_DURATION = 1000 / 60;
     private final Interpolator mInterpolator = new Interpolator() {
         public float getInterpolation(float t) {
             t -= 1.0f;
             return t * t * t + 1.0f;
+        }
+    };
+    private Paint mOutlinePaint;
+    private boolean mIsRunning = false;
+    private long mStartTime;
+    private float mAlpha = 1.0f;
+    private final Runnable mUpdater = new Runnable() {
+        @Override
+        public void run() {
+            long now = AnimationUtils.currentAnimationTimeMillis();
+            long duration = now - mStartTime;
+            if (duration >= ANIMATION_DURATION) {
+                mAlpha = 0.0f;
+                invalidate();
+                stop();
+                return;
+            } else {
+                mAlpha = mInterpolator.getInterpolation(1 - duration
+                        / (float) ANIMATION_DURATION);
+                invalidate();
+            }
+            postDelayed(mUpdater, FRAME_DURATION);
         }
     };
 
@@ -94,24 +111,5 @@ public class OutlineContainer extends FrameLayout implements Animatable {
             return;
         mIsRunning = false;
     }
-
-    private final Runnable mUpdater = new Runnable() {
-        @Override
-        public void run() {
-            long now = AnimationUtils.currentAnimationTimeMillis();
-            long duration = now - mStartTime;
-            if (duration >= ANIMATION_DURATION) {
-                mAlpha = 0.0f;
-                invalidate();
-                stop();
-                return;
-            } else {
-                mAlpha = mInterpolator.getInterpolation(1 - duration
-                        / (float) ANIMATION_DURATION);
-                invalidate();
-            }
-            postDelayed(mUpdater, FRAME_DURATION);
-        }
-    };
 
 }

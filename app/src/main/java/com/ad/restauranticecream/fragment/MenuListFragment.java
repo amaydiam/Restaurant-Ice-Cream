@@ -581,7 +581,7 @@ public class MenuListFragment extends Fragment implements MenuAdapter.OnMenuItem
         int viewId = v.getId();
         if (viewId == R.id.btn_pesan) {
 
-            List<PesanBaru> p = PesanBaru.find(PesanBaru.class, NamingHelper.toSQLNameDefault("id_menu")+ "= ?", menu.id_menu);
+            List<PesanBaru> p = PesanBaru.find(PesanBaru.class, NamingHelper.toSQLNameDefault("id_menu") + "= ?", menu.id_menu);
             PesanBaru pesanBaru;
             if (p.size() > 0) {
                 PesanBaru z = p.get(0);

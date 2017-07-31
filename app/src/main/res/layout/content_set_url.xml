@@ -49,9 +49,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textNoSuggestions"
+                            android:hint="ex: 192.168.1.100"
 
-                            android:hint="ex: 192.168.1.100"/>
+                            android:inputType="textNoSuggestions" />
 
                     </LinearLayout>
 

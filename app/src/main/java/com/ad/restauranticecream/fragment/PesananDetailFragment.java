@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +14,10 @@ import android.widget.TextView;
 
 import com.ad.restauranticecream.R;
 import com.ad.restauranticecream.RestaurantIceCream;
-import com.ad.restauranticecream.activity.DrawerActivity;
 import com.ad.restauranticecream.model.DetailPesanan;
 import com.ad.restauranticecream.model.Pesanan;
 import com.ad.restauranticecream.utils.ApiHelper;
 import com.ad.restauranticecream.utils.CustomVolley;
-import com.ad.restauranticecream.utils.Prefs;
 import com.ad.restauranticecream.utils.TextUtils;
 import com.ad.restauranticecream.utils.Utils;
 import com.ad.restauranticecream.widget.RobotoBoldTextView;
@@ -30,13 +26,11 @@ import com.ad.restauranticecream.widget.RobotoRegularEditText;
 import com.ad.restauranticecream.widget.RobotoRegularTextView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.sdsmdg.tastytoast.TastyToast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import agency.tango.android.avatarview.loader.PicassoLoader;
 import butterknife.BindBool;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -96,7 +90,6 @@ public class PesananDetailFragment extends Fragment implements CustomVolley.OnCa
 
     private Unbinder unbinder;
     private Pesanan pesanan;
-    private PicassoLoader imageLoader;
     private CustomVolley customVolley;
     private RequestQueue queue;
     private String detail_pesanan;
@@ -108,7 +101,6 @@ public class PesananDetailFragment extends Fragment implements CustomVolley.OnCa
         unbinder = ButterKnife.bind(this, v);
         customVolley = new CustomVolley(getActivity());
         customVolley.setOnCallbackResponse(this);
-        imageLoader = new PicassoLoader();
 
         // Setup toolbar
         toolbar.setTitle(R.string.loading);
@@ -192,7 +184,7 @@ public class PesananDetailFragment extends Fragment implements CustomVolley.OnCa
         namaPemesan.setText("Nama Pemesan : " + (TextUtils.isNullOrEmpty(pesanan.nama_pemesan) ? "-" : pesanan.nama_pemesan));
         kodePesanan.setText("Kode Pesanan : " + (TextUtils.isNullOrEmpty(pesanan.kode_pesanan) ? "-" : pesanan.kode_pesanan));
         statusPesanan.setText("Status : " + (TextUtils.isNullOrEmpty(pesanan.status_pesanan) ? "-" : pesanan.status_pesanan));
-        jumlahHarga.setText("Total : "+Utils.Rupiah(pesanan.total_harga));
+        jumlahHarga.setText("Total : " + Utils.Rupiah(pesanan.total_harga));
 
         catatanKedua.setText(pesanan.catatan);
 

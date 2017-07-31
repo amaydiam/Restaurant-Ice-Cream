@@ -34,7 +34,6 @@ public class RestaurantIceCream extends SugarApp {
     public static final String message = "message";
 
 
-
     public static final String PAGE = "PAGE";
 
     public static final String LOGIN = "login";
@@ -65,44 +64,43 @@ public class RestaurantIceCream extends SugarApp {
     public static final String CATATAN_PESANAN = "CATATAN_PESANAN";
 
 
-    public static String id_meja="id_meja";
-    public static String nama_meja="nama_meja";
-    public static String meja="meja";
+    public static String id_meja = "id_meja";
+    public static String nama_meja = "nama_meja";
+    public static String meja = "meja";
 
-    public static String pesanan="pesanan";
-    public static String  id_pesanan = "id_pesanan";
-    public static String  kode_pesanan = "kode_pesanan";
-    public static String  nama_pemesan = "nama_pemesan";
-    public static String  waktu_pesan = "waktu_pesan";
-    public static String  status_pesanan = "status_pesanan";
-    public static String  total_harga = "total_harga";
-    public static String  catatan = "catatan";
-
-
-
-     public static String  id_detail_pesanan = "id_detail_pesanan";
-     public static String  id_menu = "id_menu";
-     public static String  jumlah_pesanan = "jumlah_pesanan";
-     public static String  harga_pesanan = "harga_pesanan";
-     public static String  nama_menu = "nama_menu";
-     public static String  total_harga_pesanan = "total_harga_pesanan";
-    public static String detail_pesanan="detail_pesanan";
-    public static String kategori_menu="kategori_menu";
-
-    public static String id_kategori_menu="id_kategori_menu";
-    public static String nama_kategori_menu="nama_kategori_menu";
-    public static String gambar_kategori_menu="gambar_kategori_menu";
+    public static String pesanan = "pesanan";
+    public static String id_pesanan = "id_pesanan";
+    public static String kode_pesanan = "kode_pesanan";
+    public static String nama_pemesan = "nama_pemesan";
+    public static String waktu_pesan = "waktu_pesan";
+    public static String status_pesanan = "status_pesanan";
+    public static String total_harga = "total_harga";
+    public static String catatan = "catatan";
 
 
-    public static String id_sub_kategori_menu="id_sub_kategori_menu";
-    public static String nama_sub_kategori_menu="nama_sub_kategori_menu";
-    public static String gambar_sub_kategori_menu="gambar_sub_kategori_menu";
-    public static String sub_kategori_menu="sub_kategori_menu";
+    public static String id_detail_pesanan = "id_detail_pesanan";
+    public static String id_menu = "id_menu";
+    public static String jumlah_pesanan = "jumlah_pesanan";
+    public static String harga_pesanan = "harga_pesanan";
+    public static String nama_menu = "nama_menu";
+    public static String total_harga_pesanan = "total_harga_pesanan";
+    public static String detail_pesanan = "detail_pesanan";
+    public static String kategori_menu = "kategori_menu";
 
-    public static String menu="menu";
-    public static String harga_menu="harga_menu";
-    public static String stok_menu="stok_menu";
-    public static String gambar_menu="gambar_menu";
+    public static String id_kategori_menu = "id_kategori_menu";
+    public static String nama_kategori_menu = "nama_kategori_menu";
+    public static String gambar_kategori_menu = "gambar_kategori_menu";
+
+
+    public static String id_sub_kategori_menu = "id_sub_kategori_menu";
+    public static String nama_sub_kategori_menu = "nama_sub_kategori_menu";
+    public static String gambar_sub_kategori_menu = "gambar_sub_kategori_menu";
+    public static String sub_kategori_menu = "sub_kategori_menu";
+
+    public static String menu = "menu";
+    public static String harga_menu = "harga_menu";
+    public static String stok_menu = "stok_menu";
+    public static String gambar_menu = "gambar_menu";
 
     @Override
     protected void attachBaseContext(Context base) {

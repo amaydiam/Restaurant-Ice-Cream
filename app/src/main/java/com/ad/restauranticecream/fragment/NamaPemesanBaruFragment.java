@@ -11,7 +11,6 @@ import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 
 import com.ad.restauranticecream.R;
-import com.ad.restauranticecream.RestaurantIceCream;
 import com.ad.restauranticecream.utils.SnackBar;
 import com.ad.restauranticecream.utils.Utils;
 import com.ad.restauranticecream.widget.RobotoRegularEditText;
@@ -101,7 +100,7 @@ public class NamaPemesanBaruFragment extends DialogFragment {
 
         butterKnife = ButterKnife.bind(this, view);
         snackbar = new SnackBar(getActivity(), coordinatorLayout);
-        toolbar.setTitle("Master Password");
+        toolbar.setTitle("Nama Pemesan");
         toolbar.setNavigationIcon(
                 new IconDrawable(getActivity(), MaterialIcons.md_close)
                         .colorRes(R.color.white)
@@ -121,13 +120,6 @@ public class NamaPemesanBaruFragment extends DialogFragment {
         return view;
     }
 
-
-    public interface NamaPemesanBaruListener {
-
-        void onFinishNamaPemesanBaru(String nama_pemesan_baru);
-    }
-
-
     @Override
     public void onStart() {
         super.onStart();
@@ -136,6 +128,11 @@ public class NamaPemesanBaruFragment extends DialogFragment {
     @Override
     public void onStop() {
         super.onStop();
+    }
+
+    public interface NamaPemesanBaruListener {
+
+        void onFinishNamaPemesanBaru(String nama_pemesan_baru);
     }
 
 

@@ -33,12 +33,6 @@ public class DialogViewSinggleImageFragment extends DialogFragment {
     ProgressBar loading;
     @BindView(R.id.btn_close)
     IconTextView btnClose;
-
-    @OnClick(R.id.btn_close)
-    void btnClose() {
-        dismiss();
-    }
-
     private String photo;
 
     public DialogViewSinggleImageFragment() {
@@ -51,6 +45,11 @@ public class DialogViewSinggleImageFragment extends DialogFragment {
         args.putString(RestaurantIceCream.PHOTO, photo);
         f.setArguments(args);
         return f;
+    }
+
+    @OnClick(R.id.btn_close)
+    void btnClose() {
+        dismiss();
     }
 
     @Override

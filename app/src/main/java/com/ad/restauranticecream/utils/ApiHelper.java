@@ -1,9 +1,8 @@
 package com.ad.restauranticecream.utils;
 
-        import android.content.Context;
-        import android.support.v4.app.FragmentActivity;
+import android.content.Context;
 
-        import com.ad.restauranticecream.R;
+import com.ad.restauranticecream.R;
 
 public class ApiHelper {
 
@@ -23,9 +22,10 @@ public class ApiHelper {
 
     //laporan donasi
     public static String getPesananModePelangganLink(Context context, String idMeja, int page, String keyword) {
-        return getApiUrl(context) + "pesanan/pesanan_pelanggan/"+idMeja+"/" + page + (!TextUtils.isNullOrEmpty(keyword) ? ("/" + keyword) : "");
+        return getApiUrl(context) + "pesanan/pesanan_pelanggan/" + idMeja + "/" + page + (!TextUtils.isNullOrEmpty(keyword) ? ("/" + keyword) : "");
     }
- public static String getPesananModePelayanLink(Context context, int page, String keyword) {
+
+    public static String getPesananModePelayanLink(Context context, int page, String keyword) {
         return getApiUrl(context) + "pesanan/pesanan_pelayan/" + page + (!TextUtils.isNullOrEmpty(keyword) ? ("/" + keyword) : "");
     }
 
@@ -84,7 +84,6 @@ public class ApiHelper {
     public static String getMenuDeleteLink(Context context, String id) {
         return getApiUrl(context) + "menu/delete_menu/" + id;
     }
-
 
 
     //Mustahiq

@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 
-import com.ad.restauranticecream.R; import com.ad.restauranticecream.R2;
+import com.ad.restauranticecream.R;
 import com.ad.restauranticecream.RestaurantIceCream;
 import com.ad.restauranticecream.utils.ApiHelper;
 import com.ad.restauranticecream.utils.CustomVolley;
@@ -52,6 +52,10 @@ public class SetUrlFragment extends DialogFragment implements CustomVolley.OnCal
     private CustomVolley customVolley;
     private RequestQueue queue;
 
+    public SetUrlFragment() {
+
+    }
+
     void Action(int id) {
         Utils.HideKeyboard(getActivity(), url);
         switch (id) {
@@ -63,13 +67,12 @@ public class SetUrlFragment extends DialogFragment implements CustomVolley.OnCal
                     snackbar.show("Harap isi form...");
                     return;
                 }
-                queue = customVolley.Rest(Request.Method.GET, ApiHelper.getTesUrl(getActivity(),val_url.replace("/","").replace("http","").replace(":","")), null, TAG_TES);
+                queue = customVolley.Rest(Request.Method.GET, ApiHelper.getTesUrl(getActivity(), val_url.replace("/", "").replace("http", "").replace(":", "")), null, TAG_TES);
                 break;
             case Menus.DELETE:
                 break;
         }
     }
-
 
     @Override
     public void onDestroyView() {
@@ -84,10 +87,6 @@ public class SetUrlFragment extends DialogFragment implements CustomVolley.OnCal
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-    }
-
-    public SetUrlFragment() {
 
     }
 
@@ -129,8 +128,8 @@ public class SetUrlFragment extends DialogFragment implements CustomVolley.OnCal
         toolbar.setSubtitle("Set URL");
         _delete.setVisible(false);
 
-        if(Prefs.getUrl(getActivity())!=null)
-            url.setText(Prefs.getUrl(getActivity()).replace("http://",""));
+        if (Prefs.getUrl(getActivity()) != null)
+            url.setText(Prefs.getUrl(getActivity()).replace("http://", ""));
 
         getDialog().getWindow().setSoftInputMode(
                 LayoutParams.SOFT_INPUT_STATE_HIDDEN);
@@ -158,7 +157,7 @@ public class SetUrlFragment extends DialogFragment implements CustomVolley.OnCal
             JSONObject json = new JSONObject(response);
             String res = json.getString(RestaurantIceCream.isSuccess);
             if (TAG.equals(TAG_TES)) {
-                Prefs.putUrl(getActivity(), "http://" + val_url.replace("/","").replace("http","").replace(":",""));
+                Prefs.putUrl(getActivity(), "http://" + val_url.replace("/", "").replace("http", "").replace(":", ""));
             }
             dismiss();
         } catch (Exception e) {

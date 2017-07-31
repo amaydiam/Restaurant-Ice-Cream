@@ -73,13 +73,12 @@ public class DrawerActivity extends AppCompatActivity {
 
 
     public void loadDetailPesananFragmentWith(Pesanan pesanan) {
-       PesananDetailFragment fragment = new PesananDetailFragment();
+        PesananDetailFragment fragment = new PesananDetailFragment();
         Bundle args = new Bundle();
         args.putParcelable(RestaurantIceCream.PESANAN_OBJECT, pesanan);
         fragment.setArguments(args);
         getSupportFragmentManager().beginTransaction().replace(R.id.detail_fragment, fragment).commit();
     }
-
 
 
     @Override
@@ -126,8 +125,6 @@ public class DrawerActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 
-
-
         EasyImage.handleActivityResult(requestCode, resultCode, data, this, new DefaultCallback() {
             @Override
             public void onImagePickerError(Exception e, EasyImage.ImageSource source, int type) {
@@ -160,7 +157,6 @@ public class DrawerActivity extends AppCompatActivity {
             inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
         }
     }
-
 
 
 }

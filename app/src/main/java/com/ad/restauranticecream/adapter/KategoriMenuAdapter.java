@@ -1,8 +1,6 @@
 package com.ad.restauranticecream.adapter;
 
 import android.app.Activity;
-import android.content.Context;
-import android.media.AudioManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -10,18 +8,13 @@ import android.util.SparseBooleanArray;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
-import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.ad.restauranticecream.R;
-import com.ad.restauranticecream.RestaurantIceCream;
 import com.ad.restauranticecream.model.KategoriMenu;
 import com.ad.restauranticecream.utils.ApiHelper;
-import com.ad.restauranticecream.utils.Prefs;
-import com.ad.restauranticecream.utils.TextUtils;
-import com.ad.restauranticecream.utils.Utils;
 import com.ad.restauranticecream.widget.RobotoLightTextView;
 import com.bumptech.glide.Glide;
 
@@ -104,7 +97,7 @@ public class KategoriMenuAdapter extends RecyclerView.Adapter<KategoriMenuAdapte
                 .inflate(R.layout.item_kategori_menu_list, parent, false);
         ViewHolder holder = new ViewHolder(v);
         holder.rootParent.setOnClickListener(this);
-      //  holder.rootParent.setOnTouchListener(this);
+        //  holder.rootParent.setOnTouchListener(this);
         return holder;
     }
 

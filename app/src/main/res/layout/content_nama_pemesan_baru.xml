@@ -61,9 +61,9 @@
                     android:id="@+id/btn_selanjutnya"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_half_vertical_margin"
                     android:layout_marginLeft="@dimen/activity_half_vertical_margin"
                     android:layout_marginRight="@dimen/activity_half_vertical_margin"
-                    android:layout_marginBottom="@dimen/activity_half_vertical_margin"
                     android:background="@color/accent"
                     android:text="Selanjutnya"
                     android:textColor="@color/white" />

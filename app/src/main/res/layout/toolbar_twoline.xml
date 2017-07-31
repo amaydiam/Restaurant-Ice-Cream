@@ -4,8 +4,8 @@
     android:id="@+id/toolbar_text_holder"
     android:layout_width="wrap_content"
     android:layout_height="?attr/actionBarSize"
-    android:layout_marginRight="@dimen/dist_large"
     android:layout_marginEnd="@dimen/dist_large"
+    android:layout_marginRight="@dimen/dist_large"
     android:gravity="center_vertical"
     android:orientation="vertical">
 
@@ -13,21 +13,21 @@
         android:id="@+id/toolbar_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxLines="1"
         android:ellipsize="end"
-        android:textStyle="bold"
-        android:textSize="@dimen/text_xlarge"
+        android:maxLines="1"
         android:textColor="@android:color/white"
-        tools:text="toolbar_title"/>
+        android:textSize="@dimen/text_xlarge"
+        android:textStyle="bold"
+        tools:text="toolbar_title" />
 
     <com.ad.restauranticecream.widget.RobotoRegularTextView
         android:id="@+id/toolbar_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxLines="1"
         android:ellipsize="end"
-        android:textSize="@dimen/text_small"
+        android:maxLines="1"
         android:textColor="@android:color/white"
-        tools:text="toolbar_subtitle"/>
+        android:textSize="@dimen/text_small"
+        tools:text="toolbar_subtitle" />
 
 </LinearLayout>
