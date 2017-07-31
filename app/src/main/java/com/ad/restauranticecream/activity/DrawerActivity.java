@@ -1,11 +1,9 @@
 package com.ad.restauranticecream.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.inputmethod.InputMethodManager;
@@ -18,8 +16,6 @@ import com.ad.restauranticecream.fragment.HomeFrament;
 import com.ad.restauranticecream.fragment.PesananDetailFragment;
 import com.ad.restauranticecream.model.ImageFile;
 import com.ad.restauranticecream.model.Pesanan;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlacePicker;
 import com.joanzapata.iconify.Iconify;
 import com.joanzapata.iconify.fonts.EntypoModule;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
@@ -52,22 +48,19 @@ public class DrawerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_drawer);
         ButterKnife.bind(this);
         if (isTablet && savedInstanceState == null) {
-            loadDetailMustahiqFragmentWith("null");
+            loadDetailMustahiqFragmentWith();
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
         hideSoftKeyboard();
     }
 
-    public void loadDetailMustahiqFragmentWith(String id_mustahiq) {
+    public void loadDetailMustahiqFragmentWith() {
         HomeFrament fragment = new HomeFrament();
-        Bundle args = new Bundle();
-        args.putString(RestaurantIceCream.MUSTAHIQ_ID, id_mustahiq);
-        fragment.setArguments(args);
         getSupportFragmentManager().beginTransaction().replace(R.id.detail_fragment, fragment).commit();
     }
 
 
-    public void loadDetailMejaFragmentWith(String id_calon_mustahiq) {
+    public void loadDetailMejaFragmentWith() {
 /*
         MejaDetailFragment fragment = new MejaDetailFragment();
         Bundle args = new Bundle();

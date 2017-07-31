@@ -15,14 +15,11 @@
     <supports-screens
         android:largeScreens="true"
         android:xlargeScreens="true" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-feature android:name="android.hardware.location.network" android:required="false" />
-    <uses-feature android:name="android.hardware.location.gps" android:required="false"  />
 
     <application
-        android:name=".utils.App"
+        android:name=".RestaurantIceCream"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -75,9 +72,6 @@
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="com.ad.restauranticecream.model" />
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
 
     </application>
 
