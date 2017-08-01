@@ -140,6 +140,11 @@ public class ApiHelper {
         return getApiUrl(context) + "absensi_meja/absen";
     }
 
+    public static String getAbsensiPegawaiLink(Context context) {
+        return getApiUrl(context) + "absensi_pegawai/absen";
+    }
+
+
     public static String getRegisterLink(Context context) {
         return getApiUrl(context) + "user/register";
     }

@@ -55,6 +55,7 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
@@ -64,6 +65,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import id.zelory.compressor.Compressor;
 import pl.aprilapps.easyphotopicker.EasyImage;
 
 public class ManageKategoriMenuFragment extends DialogFragment implements CustomVolley.OnCallbackResponse {
@@ -187,7 +189,14 @@ public class ManageKategoriMenuFragment extends DialogFragment implements Custom
 
                 if (fileGambarKategoriMenu != null) {
                     // process only post has valid image
-                    Bitmap newsBitmap = BitmapFactory.decodeFile(fileGambarKategoriMenu.getAbsolutePath());
+                    Bitmap newsBitmap = null;
+                    try {
+                        newsBitmap = new Compressor(getActivity()).compressToBitmap(fileGambarKategoriMenu);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        newsBitmap = BitmapFactory.decodeFile(fileGambarKategoriMenu.getAbsolutePath());
+                    }
+
                     ByteArrayOutputStream imageBaOs = new ByteArrayOutputStream();
                     newsBitmap.compress(Bitmap.CompressFormat.JPEG, RestaurantIceCream.JPEG_OUTPUT_QUALITY, imageBaOs);
                     byte[] imageByteArrayNews = imageBaOs.toByteArray();

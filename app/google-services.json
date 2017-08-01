@@ -1,35 +1,148 @@
 {
   "project_info": {
-    "project_number": "653856336876",
-    "project_id": "jhavel-wisata"
+    "project_number": "1004282077529",
+    "firebase_url": "https://academic-notch-124623.firebaseio.com",
+    "project_id": "academic-notch-124623",
+    "storage_bucket": "academic-notch-124623.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:653856336876:android:50f1258693661049",
+        "mobilesdk_app_id": "1:1004282077529:android:269156c93dd5b50d",
         "android_client_info": {
-          "package_name": "com.ad.restauranticecream"
+          "package_name": "com.qwash.washer"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1004282077529-afhm2n7hvcqqut9ah31ollf9snqfrjrp.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1004282077529-lmkpimgc8gosnu1ua9euofptqde84de8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyBIFdugRf2R4fRsLhl0THpwqDwk6GSykOU"
+          "current_key": "AIzaSyAP74yaYxk6K5DhWvY2_ke7Cg9ddCfn0W0"
         }
       ],
       "services": {
         "analytics_service": {
-          "status": 2,
-          "analytics_property": {
-            "tracking_id": "UA-44314080-1"
-          }
+          "status": 1
         },
         "appinvite_service": {
           "status": 1,
           "other_platform_oauth_client": []
         },
         "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004282077529:android:22a884f4de58e9aa",
+        "android_client_info": {
+          "package_name": "com.ad.sample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1004282077529-afhm2n7hvcqqut9ah31ollf9snqfrjrp.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1004282077529-lmkpimgc8gosnu1ua9euofptqde84de8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP74yaYxk6K5DhWvY2_ke7Cg9ddCfn0W0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
           "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004282077529:android:dff5c84e34f3af23",
+        "android_client_info": {
+          "package_name": "com.qwash.user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1004282077529-afhm2n7hvcqqut9ah31ollf9snqfrjrp.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1004282077529-lmkpimgc8gosnu1ua9euofptqde84de8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP74yaYxk6K5DhWvY2_ke7Cg9ddCfn0W0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004282077529:android:8a4a5f96808135b6",
+        "android_client_info": {
+          "package_name": "com.ad.restauranticecream"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1004282077529-afhm2n7hvcqqut9ah31ollf9snqfrjrp.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1004282077529-lmkpimgc8gosnu1ua9euofptqde84de8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP74yaYxk6K5DhWvY2_ke7Cg9ddCfn0W0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
         }
       }
     }

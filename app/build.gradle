@@ -11,8 +11,9 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-
         multiDexEnabled true
+        manifestPlaceholders = [onesignal_app_id               : "740cf3ca-3833-4d64-abcb-ba8bc169e62c",
+                                onesignal_google_project_number: "REMOTE"]
     }
     buildTypes {
         release {
@@ -62,6 +63,10 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.github.satyan:sugar:1.5'
+    compile 'com.flaviofaria:kenburnsview:1.0.7'
+    compile 'id.zelory:compressor:2.1.0'
+    compile 'com.onesignal:OneSignal:[3.5.8, 3.99.99]'
+
 }
 
 

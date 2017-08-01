@@ -1,6 +1,8 @@
 package com.ad.restauranticecream.adapter;
 
 import android.app.Activity;
+import android.content.Context;
+import android.media.AudioManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -8,15 +10,19 @@ import android.util.SparseBooleanArray;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.ad.restauranticecream.R;
+import com.ad.restauranticecream.RestaurantIceCream;
 import com.ad.restauranticecream.model.SubKategoriMenu;
 import com.ad.restauranticecream.utils.ApiHelper;
+import com.ad.restauranticecream.utils.Prefs;
 import com.ad.restauranticecream.widget.RobotoLightTextView;
 import com.bumptech.glide.Glide;
+import com.joanzapata.iconify.widget.IconButton;
 
 import java.util.ArrayList;
 
@@ -51,7 +57,7 @@ public class SubKategoriMenuAdapter extends RecyclerView.Adapter<SubKategoriMenu
     @Override
     public boolean onTouch(View v, MotionEvent event) {
 
-      /*  final int viewId = v.getId();
+        final int viewId = v.getId();
         if (viewId == R.id.btn_action) {
             if (gestureDetector.onTouchEvent(event)) {
                 if (OnSubKategoriMenuItemClickListener != null) {
@@ -60,7 +66,7 @@ public class SubKategoriMenuAdapter extends RecyclerView.Adapter<SubKategoriMenu
                     OnSubKategoriMenuItemClickListener.onActionClick(v, (Integer) v.getTag());
                 }
             }
-        }*/
+        }
 
         return false;
     }
@@ -124,7 +130,14 @@ public class SubKategoriMenuAdapter extends RecyclerView.Adapter<SubKategoriMenu
         }
 
 
+        if (Prefs.getModeApp(activity) == RestaurantIceCream.MODE_PELAYAN)
+            holder.btnAction.setVisibility(View.VISIBLE);
+        else
+            holder.btnAction.setVisibility(View.GONE);
+
+
         holder.rootParent.setTag(position);
+        holder.btnAction.setTag(position);
 
     }
 
@@ -188,6 +201,8 @@ public class SubKategoriMenuAdapter extends RecyclerView.Adapter<SubKategoriMenu
         RobotoLightTextView namaSubKategoriMenu;
         @BindView(R.id.root_parent)
         CardView rootParent;
+        @BindView(R.id.btn_action)
+        IconButton btnAction;
 
         public ViewHolder(View vi) {
             super(vi);

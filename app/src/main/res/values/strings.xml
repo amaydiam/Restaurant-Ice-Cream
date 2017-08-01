@@ -53,6 +53,8 @@
     <string name="pesanan">Pesanan</string>
     <string name="pesan_baru">Pesan Baru</string>
     <string name="teruskan">Teruskan</string>
+    <string name="menu_makanan">Menu Makanan</string>
+    <string name="pesanan_pelanggan">Pesanan Pelanggan</string>
 
 
 </resources>

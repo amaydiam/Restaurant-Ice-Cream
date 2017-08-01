@@ -24,6 +24,7 @@ import com.ad.restauranticecream.utils.Prefs;
 import com.ad.restauranticecream.utils.Utils;
 import com.ad.restauranticecream.widget.RobotoLightTextView;
 import com.bumptech.glide.Glide;
+import com.joanzapata.iconify.widget.IconButton;
 
 import java.util.ArrayList;
 
@@ -59,7 +60,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> im
     public boolean onTouch(View v, MotionEvent event) {
 
         final int viewId = v.getId();
-        if (viewId == R.id.btn_pesan) {
+        if (viewId == R.id.btn_pesan || viewId == R.id.btn_action) {
             if (gestureDetector.onTouchEvent(event)) {
                 if (OnMenuItemClickListener != null) {
                     AudioManager audioManager = (AudioManager) activity.getSystemService(Context.AUDIO_SERVICE);
@@ -136,8 +137,16 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> im
         if (Prefs.getModeApp(activity) != RestaurantIceCream.MODE_PELANGGAN)
             holder.btnPesan.setVisibility(View.GONE);
 
+
+        if (Prefs.getModeApp(activity) == RestaurantIceCream.MODE_PELAYAN)
+            holder.btnAction.setVisibility(View.VISIBLE);
+        else
+            holder.btnAction.setVisibility(View.GONE);
+
+
         holder.rootParent.setTag(position);
         holder.btnPesan.setTag(position);
+        holder.btnAction.setTag(position);
 
     }
 
@@ -207,6 +216,8 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> im
         Button btnPesan;
         @BindView(R.id.root_parent)
         CardView rootParent;
+        @BindView(R.id.btn_action)
+        IconButton btnAction;
 
         public ViewHolder(View vi) {
             super(vi);

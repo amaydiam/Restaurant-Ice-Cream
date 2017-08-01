@@ -60,7 +60,7 @@ import static android.content.Context.INPUT_METHOD_SERVICE;
 
 
 public class SubKategoriMenuListFragment extends Fragment implements SubKategoriMenuAdapter.OnSubKategoriMenuItemClickListener,
-        SwipeRefreshLayout.OnRefreshListener, CustomVolley.OnCallbackResponse {
+        SwipeRefreshLayout.OnRefreshListener, CustomVolley.OnCallbackResponse, ManageSubKategoriMenuFragment.AddEditSubKategoriMenuListener {
 
     private static final String TAG_MORE = "TAG_MORE";
     private static final String TAG_AWAL = "TAG_AWAL";
@@ -569,6 +569,16 @@ public class SubKategoriMenuListFragment extends Fragment implements SubKategori
     @Override
     public void onActionClick(View v, int position) {
 
+        position_action = position;
+        SubKategoriMenu sub_ketegori_menu = adapter.data.get(position);
+        FragmentManager fragmentManager = getChildFragmentManager();
+        ManageSubKategoriMenuFragment manageSubKategoriMenu = new ManageSubKategoriMenuFragment();
+        manageSubKategoriMenu.setTargetFragment(this, 0);
+        manageSubKategoriMenu.setCancelable(false);
+        manageSubKategoriMenu.setDialogTitle("SubKategoriMenu");
+        manageSubKategoriMenu.setAction("edit");
+        manageSubKategoriMenu.setData(sub_ketegori_menu);
+        manageSubKategoriMenu.show(fragmentManager, "Manage SubKategoriMenu");
     }
 
     @Override
@@ -611,4 +621,24 @@ public class SubKategoriMenuListFragment extends Fragment implements SubKategori
         }
     }
 
+    @Override
+    public void onFinishEditSubKategoriMenu(SubKategoriMenu sub_kategori_menu) {
+
+    }
+
+    @Override
+    public void onFinishAddSubKategoriMenu(SubKategoriMenu sub_kategori_menu) {
+        adapter.data.add(0, sub_kategori_menu);
+        adapter.notifyDataSetChanged();
+        if (isTablet) {
+            adapter.setSelected(0);
+            ((SubKategoriMenuListActivity) getActivity()).loadDetailSubKategoriMenuFragmentWith(adapter.data.get(0));
+        }
+    }
+
+    @Override
+    public void onFinishDeleteSubKategoriMenu(SubKategoriMenu sub_kategori_menu) {
+
+        adapter.remove(position_action);
+    }
 }

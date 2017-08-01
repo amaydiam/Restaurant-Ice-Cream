@@ -18,7 +18,8 @@ import android.view.ViewGroup;
 
 import com.ad.restauranticecream.R;
 import com.ad.restauranticecream.RestaurantIceCream;
-import com.ad.restauranticecream.model.RefreshDrawer;
+import com.ad.restauranticecream.model.PesanBaru;
+import com.ad.restauranticecream.model.Refresh;
 import com.ad.restauranticecream.utils.Menus;
 import com.ad.restauranticecream.utils.Prefs;
 import com.ad.restauranticecream.widget.RobotoBoldTextView;
@@ -299,7 +300,7 @@ public class DrawerFragment extends Fragment implements OnMenuItemClickListener,
     }
 
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
-    public void onRefreshDrawer(RefreshDrawer cp) {
+    public void onRefreshDrawer(Refresh cp) {
         if (cp.isRefresh()) {
             SetMenuDrawer();
             if (Prefs.getModeApp(getActivity()) == RestaurantIceCream.MODE_PELANGGAN) {
@@ -313,7 +314,7 @@ public class DrawerFragment extends Fragment implements OnMenuItemClickListener,
             }
         }
 
-        RefreshDrawer stickyEvent = EventBus.getDefault().getStickyEvent(RefreshDrawer.class);
+        Refresh stickyEvent = EventBus.getDefault().getStickyEvent(Refresh.class);
         if (stickyEvent != null) {
             EventBus.getDefault().removeStickyEvent(stickyEvent);
         }
@@ -324,6 +325,7 @@ public class DrawerFragment extends Fragment implements OnMenuItemClickListener,
         if (MODE == RestaurantIceCream.MODE_HOME) {
             Prefs.putIdMeja(getActivity(), null);
             Prefs.putNamaMeja(getActivity(), null);
+            PesanBaru.deleteAll(PesanBaru.class);
         }
         Prefs.putModeApp(getActivity(), MODE);
         setSelectedDrawerItem(RestaurantIceCream.VIEW_TYPE_HOME);

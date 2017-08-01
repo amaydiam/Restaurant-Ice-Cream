@@ -17,6 +17,7 @@
         android:orientation="vertical"
         android:padding="4dp">
 
+
         <ImageView
             android:id="@+id/gambar_kategori_menu"
             android:layout_width="match_parent"
@@ -38,6 +39,21 @@
             android:textSize="26sp"
             tools:text="nama_kategori_menu" />
 
+        <com.joanzapata.iconify.widget.IconButton
+            android:id="@+id/btn_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/activity_half_vertical_margin"
+            android:background="@drawable/dash_border"
+            android:padding="@dimen/activity_half_vertical_margin"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="1"
+            android:text="{fa-pencil}"
+            android:textColor="@color/primary"
+            android:textSize="20sp" />
 
     </RelativeLayout>
 

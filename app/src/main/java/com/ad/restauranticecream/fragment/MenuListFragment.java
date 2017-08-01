@@ -604,6 +604,17 @@ public class MenuListFragment extends Fragment implements MenuAdapter.OnMenuItem
             managePesanBaru.setData(pesanBaru);
             managePesanBaru.show(fragmentManager, "Manage PesanBaru");
 
+        } else if (viewId == R.id.btn_action) {
+
+            Menu sub_ketegori_menu = adapter.data.get(position);
+            FragmentManager fragmentManager = getChildFragmentManager();
+            ManageMenuFragment manageMenu = new ManageMenuFragment();
+            manageMenu.setTargetFragment(this, 0);
+            manageMenu.setCancelable(false);
+            manageMenu.setDialogTitle("Menu");
+            manageMenu.setAction("edit");
+            manageMenu.setData(sub_ketegori_menu);
+            manageMenu.show(fragmentManager, "Manage Menu");
         }
     }
 
@@ -669,11 +680,17 @@ public class MenuListFragment extends Fragment implements MenuAdapter.OnMenuItem
 
     @Override
     public void onFinishAddMenu(Menu menu) {
-
+        adapter.data.add(0, menu);
+        adapter.notifyDataSetChanged();
+        if (isTablet) {
+            adapter.setSelected(0);
+            ((MenuListActivity) getActivity()).loadDetailMenuFragmentWith(adapter.data.get(0));
+        }
     }
 
     @Override
     public void onFinishDeleteMenu(Menu menu) {
 
+        adapter.remove(position_action);
     }
 }

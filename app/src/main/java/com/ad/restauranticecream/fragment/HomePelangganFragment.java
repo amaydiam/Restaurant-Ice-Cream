@@ -39,6 +39,8 @@ import butterknife.Unbinder;
  */
 public class HomePelangganFragment extends Fragment implements NamaPemesanBaruFragment.NamaPemesanBaruListener {
 
+    @BindView(R.id.meja_ke)
+    RobotoBoldTextView mejaKe;
 
     @BindView(R.id.nama_meja)
     RobotoBoldTextView namaMeja;
@@ -97,6 +99,7 @@ public class HomePelangganFragment extends Fragment implements NamaPemesanBaruFr
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home_pelanggan, container, false);
         unbinder = ButterKnife.bind(this, view);
+        mejaKe.setText(Prefs.getNamaMeja(getActivity()));
         namaMeja.setText(Prefs.getNamaMeja(getActivity()));
         ketPesananMenunggu.setVisibility(View.GONE);
         cekPesananBaru();

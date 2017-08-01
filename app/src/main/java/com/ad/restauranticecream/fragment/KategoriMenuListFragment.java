@@ -560,7 +560,16 @@ public class KategoriMenuListFragment extends Fragment implements KategoriMenuAd
 
     @Override
     public void onActionClick(View v, int position) {
-
+        position_action = position;
+        KategoriMenu ketegori_menu = adapter.data.get(position);
+        FragmentManager fragmentManager = getChildFragmentManager();
+        ManageKategoriMenuFragment manageKategoriMenu = new ManageKategoriMenuFragment();
+        manageKategoriMenu.setTargetFragment(this, 0);
+        manageKategoriMenu.setCancelable(false);
+        manageKategoriMenu.setDialogTitle("KategoriMenu");
+        manageKategoriMenu.setAction("edit");
+        manageKategoriMenu.setData(ketegori_menu);
+        manageKategoriMenu.show(fragmentManager, "Manage KategoriMenu");
     }
 
     @Override
@@ -610,11 +619,16 @@ public class KategoriMenuListFragment extends Fragment implements KategoriMenuAd
 
     @Override
     public void onFinishAddKategoriMenu(KategoriMenu kategori_menu) {
-
+        adapter.data.add(0, kategori_menu);
+        adapter.notifyDataSetChanged();
+        if (isTablet) {
+            adapter.setSelected(0);
+            ((KategoriMenuListActivity) getActivity()).loadDetailKategoriMenuFragmentWith(adapter.data.get(0));
+        }
     }
 
     @Override
     public void onFinishDeleteKategoriMenu(KategoriMenu kategori_menu) {
-
+        adapter.remove(position_action);
     }
 }

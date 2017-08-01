@@ -112,7 +112,12 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:background="@android:color/transparent"
-                    android:textColor="#ccc"
+                    android:shadowColor="@color/text_shadow"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
                     android:visibility="gone" />
 
                 <android.support.design.widget.FloatingActionButton

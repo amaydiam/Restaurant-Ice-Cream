@@ -38,6 +38,7 @@ import com.joanzapata.iconify.fonts.MaterialIcons;
 import com.joanzapata.iconify.widget.IconButton;
 import com.mugen.Mugen;
 import com.mugen.MugenCallbacks;
+import com.onesignal.OneSignal;
 import com.sdsmdg.tastytoast.TastyToast;
 
 import org.json.JSONArray;
@@ -515,8 +516,24 @@ public class DialogPickMejaFragment extends DialogFragment implements MejaAdapte
     @Override
     public void onVolleySuccessResponse(String TAG, String response) {
         if (TAG.equals(TAG_PICK_MEJA)) {
-            callback.onFinishPickMeja(meja);
-            dismiss();
+
+            try {
+
+                JSONObject json = new JSONObject(response);
+                Boolean isSuccess = Boolean.parseBoolean(json.getString(RestaurantIceCream.isSuccess));
+                String message = json.getString(RestaurantIceCream.message);
+                if (isSuccess) {
+                    callback.onFinishPickMeja(meja);
+                    dismiss();
+                } else {
+                    TastyToast.makeText(activity, message, TastyToast.LENGTH_LONG, TastyToast.SUCCESS);
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+                TastyToast.makeText(activity, "Parsing data error ...", TastyToast.LENGTH_LONG, TastyToast.ERROR);
+            }
+
         } else if (TAG.equals(TAG_DELETE)) {
             ResponeDelete(response);
 
@@ -542,7 +559,9 @@ public class DialogPickMejaFragment extends DialogFragment implements MejaAdapte
 
     @Override
     public void onVolleyErrorResponse(String TAG, String response) {
-        if (TAG.equals(TAG_DELETE)) {
+        if (TAG.equals(TAG_PICK_MEJA)) {
+            TastyToast.makeText(activity, "Error pick meja...", TastyToast.LENGTH_LONG, TastyToast.ERROR);
+        } else if (TAG.equals(TAG_DELETE)) {
             TastyToast.makeText(activity, "Error hapus meja...", TastyToast.LENGTH_LONG, TastyToast.ERROR);
         } else {
             if (TAG.equals(TAG_AWAL)) {
@@ -570,6 +589,7 @@ public class DialogPickMejaFragment extends DialogFragment implements MejaAdapte
             queue.cancelAll(TAG_MORE);
             queue.cancelAll(TAG_NEW);
             queue.cancelAll(TAG_DELETE);
+            queue.cancelAll(TAG_PICK_MEJA);
         }
     }
 
@@ -593,10 +613,18 @@ public class DialogPickMejaFragment extends DialogFragment implements MejaAdapte
     @Override
     public void onFinishMasterPassword() {
 
-        Map<String, String> jsonParams = new HashMap<>();
+        final Map<String, String> jsonParams = new HashMap<>();
 
         jsonParams.put(RestaurantIceCream.id_meja,
                 meja.id_meja);
+        OneSignal.idsAvailable(new OneSignal.IdsAvailableHandler() {
+            @Override
+            public void idsAvailable(String userId, String registrationId) {
+                if (userId != null)
+                    jsonParams.put(RestaurantIceCream.id_one_signal,
+                            userId);
+            }
+        });
 
         queue = customVolley.Rest(Request.Method.POST, ApiHelper.getAbsensiMejaLink(getActivity()), jsonParams, TAG_PICK_MEJA);
 

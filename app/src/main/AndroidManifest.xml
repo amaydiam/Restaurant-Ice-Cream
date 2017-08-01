@@ -75,7 +75,13 @@
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="com.ad.restauranticecream.model" />
 
-
+        <service
+            android:name=".service.MyNotificationExtenderService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.onesignal.NotificationExtender" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

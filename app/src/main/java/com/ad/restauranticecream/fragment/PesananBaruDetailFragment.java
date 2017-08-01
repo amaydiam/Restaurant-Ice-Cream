@@ -25,6 +25,7 @@ import com.ad.restauranticecream.RestaurantIceCream;
 import com.ad.restauranticecream.activity.KategoriMenuListActivity;
 import com.ad.restauranticecream.model.DetailPesanan;
 import com.ad.restauranticecream.model.PesanBaru;
+import com.ad.restauranticecream.model.Refresh;
 import com.ad.restauranticecream.utils.ApiHelper;
 import com.ad.restauranticecream.utils.CustomVolley;
 import com.ad.restauranticecream.utils.Prefs;
@@ -39,6 +40,7 @@ import com.android.volley.RequestQueue;
 import com.joanzapata.iconify.IconDrawable;
 import com.joanzapata.iconify.fonts.MaterialCommunityIcons;
 
+import org.greenrobot.eventbus.EventBus;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -183,6 +185,8 @@ public class PesananBaruDetailFragment extends Fragment implements CustomVolley.
                                 Prefs.putKodePesanan(getActivity(), null);
                                 Prefs.putCatatanPesanan(getActivity(), "");
                                 PesanBaru.deleteAll(PesanBaru.class);
+
+                                EventBus.getDefault().postSticky(new Refresh(true));
                                 getActivity().finish();
                             }
                         })

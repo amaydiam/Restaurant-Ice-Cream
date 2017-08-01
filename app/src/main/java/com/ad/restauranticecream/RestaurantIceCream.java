@@ -1,8 +1,11 @@
 package com.ad.restauranticecream;
 
+import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 
+import com.ad.restauranticecream.service.MyNotificationReceivedHandler;
+import com.onesignal.OneSignal;
 import com.orm.SugarApp;
 
 
@@ -101,10 +104,37 @@ public class RestaurantIceCream extends SugarApp {
     public static String harga_menu = "harga_menu";
     public static String stok_menu = "stok_menu";
     public static String gambar_menu = "gambar_menu";
+    public static String id_one_signal = "id_one_signal";
+    public static String tipe_pegawai = "tipe_pegawai";
+    private static Application mInstance;
+    private static Context context;
+
+    public static synchronized Application getInstance() {
+        return mInstance;
+    }
+
+    public static Context getContext() {
+        return context;
+    }
 
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
+    }
+
+    //Called when the application is starting, before any other application objects have been created.
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        mInstance = this;
+        context = getApplicationContext();
+        //MyNotificationOpenedHandler : This will be called when a notification is tapped on.
+        //MyNotificationReceivedHandler : This will be called when a notification is received while your app is running.
+        OneSignal.startInit(this)
+                //   .setNotificationOpenedHandler(new MyNotificationOpenedHandler())
+                .setNotificationReceivedHandler(new MyNotificationReceivedHandler())
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.None)
+                .init();
     }
 }

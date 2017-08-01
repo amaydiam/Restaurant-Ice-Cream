@@ -33,6 +33,7 @@ import com.ad.restauranticecream.activity.PesananDetailActivity;
 import com.ad.restauranticecream.adapter.PesananAdapter;
 import com.ad.restauranticecream.model.DataPesananMenunggu;
 import com.ad.restauranticecream.model.Pesanan;
+import com.ad.restauranticecream.model.Refresh;
 import com.ad.restauranticecream.utils.ApiHelper;
 import com.ad.restauranticecream.utils.CustomVolley;
 import com.ad.restauranticecream.utils.Prefs;
@@ -47,6 +48,8 @@ import com.mugen.MugenCallbacks;
 import com.sdsmdg.tastytoast.TastyToast;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -661,6 +664,40 @@ public class PesananListFragment extends Fragment implements PesananAdapter.OnPe
         if (getActivity().getCurrentFocus() != null) {
             InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(INPUT_METHOD_SERVICE);
             inputMethodManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
+
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    public void onRefreshDrawer(Refresh cp) {
+        if (cp.isRefresh()) {
+            // if (adapterPesanan.getItemCount() > 1) {
+            isRefresh = true;
+            isLoadingMoreData = false;
+            isFinishLoadingAwalData = true;
+            isFinishMoreData = false;
+            page = 1;
+            showNoData(false);
+       /* } else {
+            isRefresh = false;
+        }*/
+            getDataFromServer(TAG_AWAL);
+        }
+
+        Refresh stickyEvent = EventBus.getDefault().getStickyEvent(Refresh.class);
+        if (stickyEvent != null) {
+            EventBus.getDefault().removeStickyEvent(stickyEvent);
         }
     }
 

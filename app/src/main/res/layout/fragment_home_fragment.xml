@@ -1,25 +1,34 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:gravity="center"
-    android:orientation="vertical"
     tools:context="com.ad.restauranticecream.fragment.HomeFrament">
 
-    <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
+        <!-- TODO: Update blank fragment layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_vertical_margin"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"
             android:text="@string/keterangan_mode"
-            android:textColor="@color/accent"
+                android:textColor="@color/white"
             android:textSize="20sp" />
 
         <Button
@@ -27,27 +36,46 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_half_vertical_margin"
-            android:background="@color/accent"
+            android:background="@drawable/dash_border"
+            android:padding="@dimen/activity_vertical_margin"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="1"
             android:text="@string/mode_pelanggan"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/btn_mode_pelayan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_half_vertical_margin"
-            android:background="@color/accent"
+            android:background="@drawable/dash_border"
+            android:padding="@dimen/activity_vertical_margin"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="1"
             android:text="@string/mode_pelayan"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/btn_mode_kasir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_half_vertical_margin"
-            android:background="@color/accent"
+            android:background="@drawable/dash_border"
+            android:padding="@dimen/activity_vertical_margin"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="1"
             android:text="@string/mode_kasir"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="20sp" />
     </LinearLayout>
 
 </ScrollView>
+</RelativeLayout>

@@ -4,10 +4,10 @@ package com.ad.restauranticecream.model;
  * Created by Amay on 28/07/2017.
  */
 
-public class RefreshDrawer {
+public class Refresh {
     private boolean isRefresh = true;
 
-    public RefreshDrawer(boolean b) {
+    public Refresh(boolean b) {
         this.isRefresh = b;
     }
 
